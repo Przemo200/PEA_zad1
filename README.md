@@ -1,6 +1,6 @@
----
-***IN PROGRESS***
----
+
+**IN PROGRESS**
+
 
 
 komenda do uruchamiania z glownego folderu projektu:
