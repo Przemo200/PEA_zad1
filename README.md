@@ -1,3 +1,8 @@
+---
+***IN PROGRESS***
+---
+
+
 komenda do uruchamiania z glownego folderu projektu:
 
 ./build/pea_zad1 config/nazwa_pliku.txt
