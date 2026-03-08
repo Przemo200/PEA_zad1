@@ -81,12 +81,12 @@ clean: CMakeFiles/pea_zad1.dir/clean
 CMakeFiles/pea_zad1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target pea_zad1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target pea_zad1"
 .PHONY : CMakeFiles/pea_zad1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pea_zad1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pea_zad1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles 0
 .PHONY : CMakeFiles/pea_zad1.dir/rule

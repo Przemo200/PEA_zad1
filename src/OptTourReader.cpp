@@ -3,6 +3,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 #include <cctype>
 
 namespace {
@@ -45,12 +46,21 @@ std::vector<int> OptTourReader::loadTour(const std::string& path) {
             continue;
         }
 
-        if (line == "-1" || line == "EOF") {
+        if (line == "EOF") {
             break;
         }
 
-        int city = std::stoi(line);
-        tour.push_back(city - 1);
+        std::stringstream ss(line);
+        int city = 0;
+
+        while (ss >> city) {
+            if (city == -1) {
+                return tour;
+            }
+
+            // TSPLIB ma numeracje od 1, w programie masz od 0
+            tour.push_back(city - 1);
+        }
     }
 
     return tour;

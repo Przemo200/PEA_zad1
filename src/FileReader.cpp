@@ -113,6 +113,73 @@ namespace {
 
         return matrix;
     }
+
+    std::vector<std::vector<int>> buildFullMatrixFromNumbers(
+        int n,
+        const std::vector<int>& numbers
+    ) {
+        if (static_cast<int>(numbers.size()) < n * n) {
+            throw std::runtime_error("Za malo liczb dla FULL_MATRIX.");
+        }
+
+        std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
+        int idx = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = numbers[idx++];
+            }
+        }
+
+        return matrix;
+    }
+
+    std::vector<std::vector<int>> buildLowerDiagRowMatrix(
+    int n,
+    const std::vector<int>& numbers
+) {
+        int needed = n * (n + 1) / 2;
+        if (static_cast<int>(numbers.size()) < needed) {
+            throw std::runtime_error("Za malo liczb dla LOWER_DIAG_ROW.");
+        }
+
+        std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
+        int idx = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                int w = numbers[idx++];
+                matrix[i][j] = w;
+                matrix[j][i] = w;
+            }
+        }
+
+        return matrix;
+    }
+
+    std::vector<std::vector<int>> buildUpperRowMatrix(
+        int n,
+        const std::vector<int>& numbers
+    ) {
+        int needed = n * (n - 1) / 2;
+        if (static_cast<int>(numbers.size()) < needed) {
+            throw std::runtime_error("Za malo liczb dla UPPER_ROW.");
+        }
+
+        std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
+        int idx = 0;
+
+        for (int i = 0; i < n; i++) {
+            matrix[i][i] = 0;
+            for (int j = i + 1; j < n; j++) {
+                int w = numbers[idx++];
+                matrix[i][j] = w;
+                matrix[j][i] = w;
+            }
+        }
+
+        return matrix;
+    }
 }
 
 TSPInstance FileReader::loadInstance(const std::string& path) {
@@ -125,6 +192,8 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
     instance.name = fileNameOnly(path);
     instance.type = "UNKNOWN";
     instance.edgeWeightType = "UNKNOWN";
+
+    std::string edgeWeightFormat = "UNKNOWN";
 
     std::vector<int> explicitNumbers;
     std::vector<NodeCoord> coords;
@@ -153,7 +222,7 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
 
         if (upper.find("TYPE") == 0) {
             std::string v = valueAfterColon(line);
-            if (!v.empty()) instance.type = v;
+            if (!v.empty()) instance.type = toUpper(v);
             continue;
         }
 
@@ -166,6 +235,12 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
         if (upper.find("EDGE_WEIGHT_TYPE") == 0) {
             std::string v = valueAfterColon(line);
             if (!v.empty()) instance.edgeWeightType = toUpper(v);
+            continue;
+        }
+
+        if (upper.find("EDGE_WEIGHT_FORMAT") == 0) {
+            std::string v = valueAfterColon(line);
+            if (!v.empty()) edgeWeightFormat = toUpper(v);
             continue;
         }
 
@@ -205,18 +280,14 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
     }
 
     if (instance.edgeWeightType == "EXPLICIT") {
-        int needed = instance.dimension * instance.dimension;
-        if (static_cast<int>(explicitNumbers.size()) < needed) {
-            throw std::runtime_error("Za malo liczb w EDGE_WEIGHT_SECTION dla pliku: " + path);
-        }
-
-        instance.matrix.assign(instance.dimension, std::vector<int>(instance.dimension, 0));
-
-        int idx = 0;
-        for (int i = 0; i < instance.dimension; i++) {
-            for (int j = 0; j < instance.dimension; j++) {
-                instance.matrix[i][j] = explicitNumbers[idx++];
-            }
+        if (edgeWeightFormat == "FULL_MATRIX") {
+            instance.matrix = buildFullMatrixFromNumbers(instance.dimension, explicitNumbers);
+        } else if (edgeWeightFormat == "UPPER_ROW") {
+            instance.matrix = buildUpperRowMatrix(instance.dimension, explicitNumbers);
+        } else if (edgeWeightFormat == "LOWER_DIAG_ROW") {
+            instance.matrix = buildLowerDiagRowMatrix(instance.dimension, explicitNumbers);
+        } else {
+            throw std::runtime_error("Nieobslugiwany EDGE_WEIGHT_FORMAT: " + edgeWeightFormat);
         }
     }
     else if (instance.edgeWeightType == "EUC_2D" || instance.edgeWeightType == "ATT") {

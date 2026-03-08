@@ -181,6 +181,76 @@ CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/RNNSolver.cpp -o CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.s
 
+CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o: CMakeFiles/pea_zad1.dir/flags.make
+CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o: /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/BruteForceSolver.cpp
+CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o: CMakeFiles/pea_zad1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o -MF CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o.d -o CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o -c /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/BruteForceSolver.cpp
+
+CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/BruteForceSolver.cpp > CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.i
+
+CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/BruteForceSolver.cpp -o CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.s
+
+CMakeFiles/pea_zad1.dir/src/Generator.cpp.o: CMakeFiles/pea_zad1.dir/flags.make
+CMakeFiles/pea_zad1.dir/src/Generator.cpp.o: /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Generator.cpp
+CMakeFiles/pea_zad1.dir/src/Generator.cpp.o: CMakeFiles/pea_zad1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/pea_zad1.dir/src/Generator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pea_zad1.dir/src/Generator.cpp.o -MF CMakeFiles/pea_zad1.dir/src/Generator.cpp.o.d -o CMakeFiles/pea_zad1.dir/src/Generator.cpp.o -c /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Generator.cpp
+
+CMakeFiles/pea_zad1.dir/src/Generator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pea_zad1.dir/src/Generator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Generator.cpp > CMakeFiles/pea_zad1.dir/src/Generator.cpp.i
+
+CMakeFiles/pea_zad1.dir/src/Generator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pea_zad1.dir/src/Generator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Generator.cpp -o CMakeFiles/pea_zad1.dir/src/Generator.cpp.s
+
+CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o: CMakeFiles/pea_zad1.dir/flags.make
+CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o: /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/CSVWriter.cpp
+CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o: CMakeFiles/pea_zad1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o -MF CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o.d -o CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o -c /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/CSVWriter.cpp
+
+CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/CSVWriter.cpp > CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.i
+
+CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/CSVWriter.cpp -o CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.s
+
+CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o: CMakeFiles/pea_zad1.dir/flags.make
+CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o: /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/InstanceListReader.cpp
+CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o: CMakeFiles/pea_zad1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o -MF CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o.d -o CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o -c /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/InstanceListReader.cpp
+
+CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/InstanceListReader.cpp > CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.i
+
+CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/InstanceListReader.cpp -o CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.s
+
+CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o: CMakeFiles/pea_zad1.dir/flags.make
+CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o: /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/MemoryUsage.cpp
+CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o: CMakeFiles/pea_zad1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o -MF CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o.d -o CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o -c /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/MemoryUsage.cpp
+
+CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/MemoryUsage.cpp > CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.i
+
+CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/MemoryUsage.cpp -o CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.s
+
 # Object files for target pea_zad1
 pea_zad1_OBJECTS = \
 "CMakeFiles/pea_zad1.dir/src/main.cpp.o" \
@@ -190,7 +260,12 @@ pea_zad1_OBJECTS = \
 "CMakeFiles/pea_zad1.dir/src/RandSolver.cpp.o" \
 "CMakeFiles/pea_zad1.dir/src/OptTourReader.cpp.o" \
 "CMakeFiles/pea_zad1.dir/src/NNSolver.cpp.o" \
-"CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.o"
+"CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.o" \
+"CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o" \
+"CMakeFiles/pea_zad1.dir/src/Generator.cpp.o" \
+"CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o" \
+"CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o" \
+"CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o"
 
 # External object files for target pea_zad1
 pea_zad1_EXTERNAL_OBJECTS =
@@ -203,9 +278,14 @@ pea_zad1: CMakeFiles/pea_zad1.dir/src/RandSolver.cpp.o
 pea_zad1: CMakeFiles/pea_zad1.dir/src/OptTourReader.cpp.o
 pea_zad1: CMakeFiles/pea_zad1.dir/src/NNSolver.cpp.o
 pea_zad1: CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.o
+pea_zad1: CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o
+pea_zad1: CMakeFiles/pea_zad1.dir/src/Generator.cpp.o
+pea_zad1: CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o
+pea_zad1: CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o
+pea_zad1: CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o
 pea_zad1: CMakeFiles/pea_zad1.dir/build.make
 pea_zad1: CMakeFiles/pea_zad1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable pea_zad1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable pea_zad1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pea_zad1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

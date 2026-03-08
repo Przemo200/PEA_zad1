@@ -61,16 +61,36 @@ Config ConfigLoader::loadFromFile(const std::string& path) {
             config.instance_file = value;
         } else if (key == "opt_tour_file") {
             config.opt_tour_file = value;
+        } else if (key == "output_csv") {
+            config.output_csv = value;
+        } else if (key == "generated_type") {
+            config.generated_type = value;
+        } else if (key == "heuristics_list_file") {
+            config.heuristics_list_file = value;
         } else if (key == "show_matrix") {
             config.show_matrix = toBool(value);
         } else if (key == "progress") {
             config.progress = toBool(value);
         } else if (key == "rand_trials") {
             config.rand_trials = std::stoi(value);
+        } else if (key == "rand_repeats") {
+            config.rand_repeats = std::stoi(value);
         } else if (key == "nn_start_vertex") {
             config.nn_start_vertex = std::stoi(value);
+        } else if (key == "bf_min_n") {
+            config.bf_min_n = std::stoi(value);
+        } else if (key == "bf_max_n") {
+            config.bf_max_n = std::stoi(value);
+        } else if (key == "bf_instances_per_size") {
+            config.bf_instances_per_size = std::stoi(value);
+        } else if (key == "weight_min") {
+            config.weight_min = std::stoi(value);
+        } else if (key == "weight_max") {
+            config.weight_max = std::stoi(value);
         } else if (key == "seed") {
             config.seed = static_cast<unsigned int>(std::stoul(value));
+        } else if (key == "single_opt_cost") {
+            config.single_opt_cost = std::stoi(value);
         }
     }
 

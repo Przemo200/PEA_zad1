@@ -1,0 +1,9 @@
+# nazwa;sciezka_do_instancji;sciezka_do_opt_tour;opt_cost
+
+att48;data/tsp/att48.tsp;data/opt/att48.opt.tour;
+bayg29;data/tsp/bayg29.tsp;data/opt/bayg29.opt.tour;
+bays29;data/tsp/bays29.tsp;data/opt/bays29.opt.tour;
+berlin52;data/tsp/berlin52.tsp;data/opt/berlin52.opt.tour;
+pr76;data/tsp/pr76.tsp;data/opt/pr76.opt.tour;
+eil51;data/tsp/eil51.tsp;data/opt/eil51.opt.tour;
+gr48;data/tsp/gr48.tsp;data/opt/gr48.opt.tour;

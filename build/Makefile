@@ -129,6 +129,54 @@ pea_zad1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/build
 .PHONY : pea_zad1/fast
 
+src/BruteForceSolver.o: src/BruteForceSolver.cpp.o
+.PHONY : src/BruteForceSolver.o
+
+# target to build an object file
+src/BruteForceSolver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o
+.PHONY : src/BruteForceSolver.cpp.o
+
+src/BruteForceSolver.i: src/BruteForceSolver.cpp.i
+.PHONY : src/BruteForceSolver.i
+
+# target to preprocess a source file
+src/BruteForceSolver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.i
+.PHONY : src/BruteForceSolver.cpp.i
+
+src/BruteForceSolver.s: src/BruteForceSolver.cpp.s
+.PHONY : src/BruteForceSolver.s
+
+# target to generate assembly for a file
+src/BruteForceSolver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.s
+.PHONY : src/BruteForceSolver.cpp.s
+
+src/CSVWriter.o: src/CSVWriter.cpp.o
+.PHONY : src/CSVWriter.o
+
+# target to build an object file
+src/CSVWriter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o
+.PHONY : src/CSVWriter.cpp.o
+
+src/CSVWriter.i: src/CSVWriter.cpp.i
+.PHONY : src/CSVWriter.i
+
+# target to preprocess a source file
+src/CSVWriter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.i
+.PHONY : src/CSVWriter.cpp.i
+
+src/CSVWriter.s: src/CSVWriter.cpp.s
+.PHONY : src/CSVWriter.s
+
+# target to generate assembly for a file
+src/CSVWriter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.s
+.PHONY : src/CSVWriter.cpp.s
+
 src/Config.o: src/Config.cpp.o
 .PHONY : src/Config.o
 
@@ -176,6 +224,78 @@ src/FileReader.s: src/FileReader.cpp.s
 src/FileReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/FileReader.cpp.s
 .PHONY : src/FileReader.cpp.s
+
+src/Generator.o: src/Generator.cpp.o
+.PHONY : src/Generator.o
+
+# target to build an object file
+src/Generator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/Generator.cpp.o
+.PHONY : src/Generator.cpp.o
+
+src/Generator.i: src/Generator.cpp.i
+.PHONY : src/Generator.i
+
+# target to preprocess a source file
+src/Generator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/Generator.cpp.i
+.PHONY : src/Generator.cpp.i
+
+src/Generator.s: src/Generator.cpp.s
+.PHONY : src/Generator.s
+
+# target to generate assembly for a file
+src/Generator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/Generator.cpp.s
+.PHONY : src/Generator.cpp.s
+
+src/InstanceListReader.o: src/InstanceListReader.cpp.o
+.PHONY : src/InstanceListReader.o
+
+# target to build an object file
+src/InstanceListReader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o
+.PHONY : src/InstanceListReader.cpp.o
+
+src/InstanceListReader.i: src/InstanceListReader.cpp.i
+.PHONY : src/InstanceListReader.i
+
+# target to preprocess a source file
+src/InstanceListReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.i
+.PHONY : src/InstanceListReader.cpp.i
+
+src/InstanceListReader.s: src/InstanceListReader.cpp.s
+.PHONY : src/InstanceListReader.s
+
+# target to generate assembly for a file
+src/InstanceListReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.s
+.PHONY : src/InstanceListReader.cpp.s
+
+src/MemoryUsage.o: src/MemoryUsage.cpp.o
+.PHONY : src/MemoryUsage.o
+
+# target to build an object file
+src/MemoryUsage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o
+.PHONY : src/MemoryUsage.cpp.o
+
+src/MemoryUsage.i: src/MemoryUsage.cpp.i
+.PHONY : src/MemoryUsage.i
+
+# target to preprocess a source file
+src/MemoryUsage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.i
+.PHONY : src/MemoryUsage.cpp.i
+
+src/MemoryUsage.s: src/MemoryUsage.cpp.s
+.PHONY : src/MemoryUsage.s
+
+# target to generate assembly for a file
+src/MemoryUsage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pea_zad1.dir/build.make CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.s
+.PHONY : src/MemoryUsage.cpp.s
 
 src/NNSolver.o: src/NNSolver.cpp.o
 .PHONY : src/NNSolver.o
@@ -330,12 +450,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pea_zad1"
+	@echo "... src/BruteForceSolver.o"
+	@echo "... src/BruteForceSolver.i"
+	@echo "... src/BruteForceSolver.s"
+	@echo "... src/CSVWriter.o"
+	@echo "... src/CSVWriter.i"
+	@echo "... src/CSVWriter.s"
 	@echo "... src/Config.o"
 	@echo "... src/Config.i"
 	@echo "... src/Config.s"
 	@echo "... src/FileReader.o"
 	@echo "... src/FileReader.i"
 	@echo "... src/FileReader.s"
+	@echo "... src/Generator.o"
+	@echo "... src/Generator.i"
+	@echo "... src/Generator.s"
+	@echo "... src/InstanceListReader.o"
+	@echo "... src/InstanceListReader.i"
+	@echo "... src/InstanceListReader.s"
+	@echo "... src/MemoryUsage.o"
+	@echo "... src/MemoryUsage.i"
+	@echo "... src/MemoryUsage.s"
 	@echo "... src/NNSolver.o"
 	@echo "... src/NNSolver.i"
 	@echo "... src/NNSolver.s"

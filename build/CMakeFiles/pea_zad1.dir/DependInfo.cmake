@@ -8,8 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/BruteForceSolver.cpp" "CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o.d"
+  "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/CSVWriter.cpp" "CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/CSVWriter.cpp.o.d"
   "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Config.cpp" "CMakeFiles/pea_zad1.dir/src/Config.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/Config.cpp.o.d"
   "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/FileReader.cpp" "CMakeFiles/pea_zad1.dir/src/FileReader.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/FileReader.cpp.o.d"
+  "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Generator.cpp" "CMakeFiles/pea_zad1.dir/src/Generator.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/Generator.cpp.o.d"
+  "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/InstanceListReader.cpp" "CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/InstanceListReader.cpp.o.d"
+  "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/MemoryUsage.cpp" "CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/MemoryUsage.cpp.o.d"
   "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/NNSolver.cpp" "CMakeFiles/pea_zad1.dir/src/NNSolver.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/NNSolver.cpp.o.d"
   "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/OptTourReader.cpp" "CMakeFiles/pea_zad1.dir/src/OptTourReader.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/OptTourReader.cpp.o.d"
   "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/RNNSolver.cpp" "CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.o" "gcc" "CMakeFiles/pea_zad1.dir/src/RNNSolver.cpp.o.d"

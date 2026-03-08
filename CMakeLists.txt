@@ -15,4 +15,9 @@ add_executable(pea_zad1
         src/OptTourReader.cpp
         src/NNSolver.cpp
         src/RNNSolver.cpp
+        src/BruteForceSolver.cpp
+        src/Generator.cpp
+        src/CSVWriter.cpp
+        src/InstanceListReader.cpp
+        src/MemoryUsage.cpp
 )

@@ -158,16 +158,28 @@ CMakeFiles/pea_zad1.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/locale_facets_nonio.tcc \
  /usr/include/c++/13/bits/locale_conv.h \
  /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc \
- /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Config.h \
- /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/FileReader.h \
- /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/TSPInstance.h \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Config.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/FileReader.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/TSPInstance.h \
  /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/TourUtils.h \
  /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/RandSolver.h \
  /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/OptTourReader.h \
  /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/NNSolver.h \
- /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/RNNSolver.h
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/RNNSolver.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/BruteForceSolver.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/Generator.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/CSVWriter.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/InstanceListReader.h \
+ /home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/src/MemoryUsage.h
