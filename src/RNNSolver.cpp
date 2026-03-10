@@ -1,4 +1,4 @@
-#include "RNNSolver.h"
+#include "../include/RNNSolver.h"
 #include "TourUtils.h"
 #include <chrono>
 #include <limits>

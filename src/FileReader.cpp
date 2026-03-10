@@ -1,4 +1,4 @@
-#include "FileReader.h"
+#include "../include/FileReader.h"
 #include <fstream>
 #include <sstream>
 #include <stdexcept>

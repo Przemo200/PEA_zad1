@@ -1,4 +1,4 @@
-#include "InstanceListReader.h"
+#include "../include/InstanceListReader.h"
 #include <fstream>
 #include <sstream>
 #include <stdexcept>

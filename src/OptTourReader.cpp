@@ -1,4 +1,4 @@
-#include "OptTourReader.h"
+#include "../include/OptTourReader.h"
 #include <fstream>
 #include <sstream>
 #include <stdexcept>

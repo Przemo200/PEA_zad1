@@ -1,4 +1,4 @@
-#include "Generator.h"
+#include "../include/Generator.h"
 #include <random>
 #include <stdexcept>
 

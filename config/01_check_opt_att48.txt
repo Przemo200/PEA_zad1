@@ -1,6 +1,6 @@
 mode=check_opt
-instance_file=data/tsp/att48.tsp
-opt_tour_file=data/opt/att48.opt.tour
+instance_file=data/tsp/bayg29.tsp
+opt_tour_file=data/opt/bayg29.opt.tour
 
 show_matrix=false
 progress=false

@@ -3,18 +3,18 @@
 #include <stdexcept>
 #include <algorithm>
 #include <vector>
-#include "Config.h"
-#include "FileReader.h"
-#include "TourUtils.h"
-#include "RandSolver.h"
-#include "OptTourReader.h"
-#include "NNSolver.h"
-#include "RNNSolver.h"
-#include "BruteForceSolver.h"
-#include "Generator.h"
-#include "CSVWriter.h"
-#include "InstanceListReader.h"
-#include "MemoryUsage.h"
+#include "../include/Config.h"
+#include "../include/FileReader.h"
+#include "../include/TourUtils.h"
+#include "../include/RandSolver.h"
+#include "../include/OptTourReader.h"
+#include "../include/NNSolver.h"
+#include "../include/RNNSolver.h"
+#include "../include/BruteForceSolver.h"
+#include "../include/Generator.h"
+#include "../include/CSVWriter.h"
+#include "../include/InstanceListReader.h"
+#include "../include/MemoryUsage.h"
 
 static void printMatrix(const TSPInstance& instance) {
     std::cout << "\nMacierz kosztow:\n";

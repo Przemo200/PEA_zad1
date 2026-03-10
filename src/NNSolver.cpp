@@ -1,5 +1,5 @@
-#include "NNSolver.h"
-#include "TourUtils.h"
+#include "../include/NNSolver.h"
+#include "../include/TourUtils.h"
 #include <chrono>
 #include <limits>
 #include <stdexcept>
