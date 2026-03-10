@@ -1,0 +1,12 @@
+mode=benchmark_bf
+generated_type=TSP
+output_csv=results/bf_tsp_final(6-12).csv
+
+bf_min_n=6
+bf_max_n=12
+bf_instances_per_size=5
+
+weight_min=1
+weight_max=100
+seed=12345
+progress=false
