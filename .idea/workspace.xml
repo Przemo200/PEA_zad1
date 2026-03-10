@@ -26,22 +26,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5932eff7-8c8d-4473-aa23-0ec5c39a8a17" name="Changes" comment="walkaaaa">
-      <change afterPath="$PROJECT_DIR$/config/09_bf_tsp_final(13-15).txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/10_bf_atsp_final(13-15).txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/atsp/ftv64.atsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_rand_trials_study.sh" afterDir="false" />
+    <list default="true" id="5932eff7-8c8d-4473-aa23-0ec5c39a8a17" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/05_heuristics_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/05_heuristics_tsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/06_heuristics_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/06_heuristics_atsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/07_bf_tsp_final.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/07_bf_tsp_final(6-12).txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/08_bf_atsp_final.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/08_bf_atsp_final(6-12).txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/heuristics_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/heuristics_atsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/atsp/ftv44.atsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/bf_atsp_final.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/bf_tsp_final.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/heuristics_atsp.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/heuristics_tsp.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/07_bf_tsp_final(6-12).txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/07_bf_tsp_6_12.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/08_bf_atsp_final(6-12).txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/08_bf_atsp_6_12.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/09_bf_tsp_final(13-15).txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/09_bf_tsp_13_15.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/10_bf_atsp_final(13-15).txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/10_bf_atsp_13_15.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_rand_trials_study.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_rand_trials_study.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +135,7 @@
       <workItem from="1772965846343" duration="1560000" />
       <workItem from="1772967897212" duration="3178000" />
       <workItem from="1772981123847" duration="11032000" />
-      <workItem from="1773148055393" duration="13405000" />
+      <workItem from="1773148055393" duration="16026000" />
     </task>
     <task id="LOCAL-00001" summary="walka">
       <option name="closed" value="true" />
@@ -185,7 +177,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773162770549</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1773164018495</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773164018495</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1773164034433</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1773164034433</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +214,7 @@
     <MESSAGE value="walka" />
     <MESSAGE value="fix" />
     <MESSAGE value="walkaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="walkaaaa" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>
