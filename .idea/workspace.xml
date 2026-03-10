@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="PEA_zad1" targetName="pea_zad1" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5932eff7-8c8d-4473-aa23-0ec5c39a8a17" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/config/02_single_rand_atsp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/03_single_nn_atsp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/04_single_rnn_atsp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/07_bf_tsp_final.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/08_bf_atsp_final.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/atsp/ftv47.atsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/opt/ch130.opt.tour" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/opt/ch150.opt.tour" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/tsp/ch130.tsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/tsp/ch150.tsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/tsp/eil76.tsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/BruteForceSolver.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/RandSolver.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/RandSolver.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/main.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/main.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/pea_zad1" beforeDir="false" afterPath="$PROJECT_DIR$/build/pea_zad1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/00_test_read_att48.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/00_test_read.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/01_check_opt_att48.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/01_check_opt_for_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/02_single_rand_att48.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/02_single_rand_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/03_single_nn_att48.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/03_single_nn_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/04_single_rnn_att48.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/04_single_rnn_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/05_single_rnn_br17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/06_heuristics_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/05_heuristics_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/07_heuristics_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/06_heuristics_atsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/08_bf_tsp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/09_bf_atsp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/heuristics_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/heuristics_atsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/heuristics_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/heuristics_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/atsp/p43.atsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/opt/bayg29.opt.tour" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/opt/gr48.opt.tour" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/opt/pr76.opt.tour" beforeDir="false" afterPath="$PROJECT_DIR$/data/opt/eil76.opt.tour" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tsp/bayg29.tsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tsp/gr48.tsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tsp/pr76.tsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Config.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Przemo200&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Przemo200/PEA_zad1.git&quot;,
+    &quot;accountId&quot;: &quot;ef58ad4a-edb5-4eda-a87b-4744532c3fd0&quot;
+  }
+}</component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="2.3" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="3AevRXpEfZX1DYpsUMGK5BOripq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/data/atsp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/main.cpp",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/atsp" />
+      <recent name="$PROJECT_DIR$/data/opt" />
+      <recent name="$PROJECT_DIR$/data/tsp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/include" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/results" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pea_zad1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PEA_zad1" TARGET_NAME="pea_zad1" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="PEA_zad1" RUN_TARGET_NAME="pea_zad1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5932eff7-8c8d-4473-aa23-0ec5c39a8a17" name="Changes" comment="" />
+      <created>1772965845272</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772965845272</updated>
+      <workItem from="1772965846343" duration="1560000" />
+      <workItem from="1772967897212" duration="3178000" />
+      <workItem from="1772981123847" duration="11032000" />
+      <workItem from="1773148055393" duration="12245000" />
+    </task>
+    <task id="LOCAL-00001" summary="walka">
+      <option name="closed" value="true" />
+      <created>1772992155487</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772992155487</updated>
+    </task>
+    <task id="LOCAL-00002" summary="walka">
+      <option name="closed" value="true" />
+      <created>1772992179335</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772992179335</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix">
+      <option name="closed" value="true" />
+      <created>1773150099164</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1773150099164</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="walka" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+  </component>
+</project>
