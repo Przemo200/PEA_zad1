@@ -3,6 +3,9 @@
 #include <stdexcept>
 #include <algorithm>
 #include <vector>
+#include <map>
+#include <string>
+
 #include "../include/Config.h"
 #include "../include/FileReader.h"
 #include "../include/TourUtils.h"
@@ -16,6 +19,29 @@
 #include "../include/InstanceListReader.h"
 #include "../include/MemoryUsage.h"
 
+struct HeuristicSummary {
+    double randTimeSum = 0.0;
+    double randErrorSum = 0.0;
+    int randRuns = 0;
+    int randErrorRuns = 0;
+
+    double nnTimeSum = 0.0;
+    double nnErrorSum = 0.0;
+    int nnRuns = 0;
+    int nnErrorRuns = 0;
+
+    double rnnTimeSum = 0.0;
+    double rnnErrorSum = 0.0;
+    int rnnRuns = 0;
+    int rnnErrorRuns = 0;
+};
+
+struct OptCostInfo {
+    bool available = false;
+    int cost = -1;
+    std::string source;
+};
+
 static void printMatrix(const TSPInstance& instance) {
     std::cout << "\nMacierz kosztow:\n";
     for (int i = 0; i < instance.dimension; i++) {
@@ -26,7 +52,9 @@ static void printMatrix(const TSPInstance& instance) {
     }
 }
 
-static bool tryLoadOptCost(const Config& config, const TSPInstance& instance, int& optCost) {
+static OptCostInfo getOptCostFromConfig(const Config& config, const TSPInstance& instance) {
+    OptCostInfo info;
+
     if (!config.opt_tour_file.empty()) {
         std::vector<int> optTour = OptTourReader::loadTour(config.opt_tour_file);
 
@@ -34,19 +62,25 @@ static bool tryLoadOptCost(const Config& config, const TSPInstance& instance, in
             throw std::runtime_error("Wczytana trasa optymalna jest niepoprawna.");
         }
 
-        optCost = TourUtils::calculateTourCost(instance, optTour);
-        return true;
+        info.available = true;
+        info.cost = TourUtils::calculateTourCost(instance, optTour);
+        info.source = ".opt.tour";
+        return info;
     }
 
     if (config.single_opt_cost > 0) {
-        optCost = config.single_opt_cost;
-        return true;
+        info.available = true;
+        info.cost = config.single_opt_cost;
+        info.source = "single_opt_cost";
+        return info;
     }
 
-    return false;
+    return info;
 }
 
-static bool tryLoadOptCostFromEntry(const InstanceListEntry& entry, const TSPInstance& instance, int& optCost) {
+static OptCostInfo getOptCostFromEntry(const InstanceListEntry& entry, const TSPInstance& instance) {
+    OptCostInfo info;
+
     if (!entry.optTourFile.empty()) {
         std::vector<int> optTour = OptTourReader::loadTour(entry.optTourFile);
 
@@ -54,16 +88,20 @@ static bool tryLoadOptCostFromEntry(const InstanceListEntry& entry, const TSPIns
             throw std::runtime_error("Wczytana trasa optymalna z listy instancji jest niepoprawna.");
         }
 
-        optCost = TourUtils::calculateTourCost(instance, optTour);
-        return true;
+        info.available = true;
+        info.cost = TourUtils::calculateTourCost(instance, optTour);
+        info.source = ".opt.tour";
+        return info;
     }
 
     if (entry.optCost > 0) {
-        optCost = entry.optCost;
-        return true;
+        info.available = true;
+        info.cost = entry.optCost;
+        info.source = "lista instancji";
+        return info;
     }
 
-    return false;
+    return info;
 }
 
 static double computeRelativeErrorPercent(int cost, int optCost) {
@@ -72,8 +110,18 @@ static double computeRelativeErrorPercent(int cost, int optCost) {
 
 static void printRelativeError(int cost, int optCost) {
     double error = computeRelativeErrorPercent(cost, optCost);
-    std::cout << "Koszt optymalny: " << optCost << "\n";
+    std::cout << "Koszt optymalny / best known: " << optCost << "\n";
     std::cout << "Blad wzgledny [%]: " << error << "\n";
+}
+
+static void printOptInfo(const OptCostInfo& info) {
+    if (info.available) {
+        std::cout << "Koszt optymalny / best known: " << info.cost
+                  << " (zrodlo: " << info.source << ")\n";
+    } else {
+        std::cout << "Koszt optymalny / best known: brak danych "
+                     "(dodaj opt_tour_file albo single_opt_cost)\n";
+    }
 }
 
 static TSPInstance generateInstanceFromConfig(const Config& config, int n, unsigned int seed) {
@@ -90,13 +138,39 @@ static TSPInstance generateInstanceFromConfig(const Config& config, int n, unsig
     throw std::runtime_error("generated_type musi byc ATSP albo TSP.");
 }
 
+static long getMemoryUsageOrMinusOne() {
+    return MemoryUsage::getCurrentRSSkB();
+}
+
 static void printMemoryUsage() {
-    long rss = MemoryUsage::getCurrentRSSkB();
+    long rss = getMemoryUsageOrMinusOne();
     if (rss >= 0) {
-        std::cout << "Pamiec [kB]: " << rss << std::endl;
+        std::cout << "Pamiec [kB]: " << rss << "\n";
     } else {
         std::cout << "Pamiec [kB]: brak danych\n";
     }
+}
+
+static double safeAverage(double sum, int count) {
+    return (count > 0) ? (sum / static_cast<double>(count)) : 0.0;
+}
+
+static void printBenchmarkProgress(bool enabled,
+                                   int currentStep,
+                                   int totalSteps,
+                                   const std::string& label) {
+    if (!enabled || totalSteps <= 0) {
+        return;
+    }
+
+    double percent = 100.0 * static_cast<double>(currentStep) / static_cast<double>(totalSteps);
+    std::cout << "[POSTEP] " << currentStep << "/" << totalSteps
+              << " (" << percent << "%) - " << label << "\n";
+}
+
+static int countHeuristicBenchmarkSteps(const Config& config,
+                                        const std::vector<InstanceListEntry>& entries) {
+    return static_cast<int>(entries.size()) * (config.rand_repeats + 2);
 }
 
 int main(int argc, char* argv[]) {
@@ -113,19 +187,25 @@ int main(int argc, char* argv[]) {
             std::cout << "Typ generowanych instancji: " << config.generated_type << "\n";
             std::cout << "Zakres n: " << config.bf_min_n << " - " << config.bf_max_n << "\n";
             std::cout << "Instancji na rozmiar: " << config.bf_instances_per_size << "\n";
-            std::cout << "Plik CSV: " << config.output_csv << "\n\n";
+            std::cout << "Plik CSV: " << config.output_csv << "\n";
+            std::cout << "Progress: " << (config.progress ? "on" : "off") << "\n\n";
 
             CSVWriter::writeHeaderIfNeeded(config.output_csv);
 
             for (int n = config.bf_min_n; n <= config.bf_max_n; n++) {
                 std::cout << "Rozmiar n = " << n << "\n";
 
+                double sumTimeMs = 0.0;
+                long long sumPermutations = 0;
+                long long sumMemoryKb = 0;
+                int memorySamples = 0;
+
                 for (int instanceId = 1; instanceId <= config.bf_instances_per_size; instanceId++) {
                     unsigned int localSeed = config.seed + static_cast<unsigned int>(n * 1000 + instanceId);
 
                     TSPInstance generated = generateInstanceFromConfig(config, n, localSeed);
-
-                    BruteForceResult result = BruteForceSolver::solve(generated, false);
+                    BruteForceResult result = BruteForceSolver::solve(generated, config.progress);
+                    long rss = getMemoryUsageOrMinusOne();
 
                     CSVWriter::appendBruteForceRow(
                         config.output_csv,
@@ -137,15 +217,36 @@ int main(int argc, char* argv[]) {
                         result.checkedPermutations
                     );
 
+                    sumTimeMs += result.timeMs;
+                    sumPermutations += result.checkedPermutations;
+                    if (rss >= 0) {
+                        sumMemoryKb += rss;
+                        memorySamples++;
+                    }
+
                     std::cout << "  instancja " << instanceId
                               << " | koszt = " << result.bestCost
                               << " | czas [ms] = " << result.timeMs
-                              << " | permutacje = " << result.checkedPermutations
-                              << " | pamiec [kB] = " << MemoryUsage::getCurrentRSSkB()
-                              << "\n";
+                              << " | permutacje = " << result.checkedPermutations;
+
+                    if (rss >= 0) {
+                        std::cout << " | pamiec [kB] = " << rss;
+                    } else {
+                        std::cout << " | pamiec [kB] = brak danych";
+                    }
+                    std::cout << "\n";
                 }
 
-                std::cout << "\n";
+                std::cout << "  SREDNIO dla n = " << n
+                          << " | czas [ms] = " << safeAverage(sumTimeMs, config.bf_instances_per_size)
+                          << " | permutacje = " << safeAverage(static_cast<double>(sumPermutations), config.bf_instances_per_size);
+
+                if (memorySamples > 0) {
+                    std::cout << " | pamiec [kB] = " << safeAverage(static_cast<double>(sumMemoryKb), memorySamples);
+                } else {
+                    std::cout << " | pamiec [kB] = brak danych";
+                }
+                std::cout << "\n\n";
             }
 
             std::cout << "Benchmark brute force zakonczony.\n";
@@ -153,33 +254,47 @@ int main(int argc, char* argv[]) {
         }
 
         if (config.mode == "benchmark_heuristics") {
-            if (config.heuristics_list_file.empty()) {
-                throw std::runtime_error("Brak heuristics_list_file w configu.");
-            }
-
             std::vector<InstanceListEntry> entries = InstanceListReader::loadList(config.heuristics_list_file);
+            std::map<int, HeuristicSummary> summariesByDimension;
+
+            int totalSteps = countHeuristicBenchmarkSteps(config, entries);
+            int currentStep = 0;
 
             std::cout << "=== BENCHMARK HEURYSTYK ===\n";
             std::cout << "Lista instancji: " << config.heuristics_list_file << "\n";
             std::cout << "Plik CSV: " << config.output_csv << "\n";
             std::cout << "RAND trials: " << config.rand_trials << "\n";
             std::cout << "RAND repeats: " << config.rand_repeats << "\n";
-            std::cout << "NN start: " << config.nn_start_vertex << "\n\n";
+            std::cout << "NN start: " << config.nn_start_vertex << "\n";
+            std::cout << "Progress: " << (config.progress ? "on" : "off") << "\n\n";
 
             CSVWriter::writeHeuristicHeaderIfNeeded(config.output_csv);
 
             for (size_t i = 0; i < entries.size(); i++) {
                 const InstanceListEntry& entry = entries[i];
                 TSPInstance instance = FileReader::loadInstance(entry.instanceFile);
+                HeuristicSummary& summary = summariesByDimension[instance.dimension];
 
-                int optCost = -1;
-                bool hasOptCost = tryLoadOptCostFromEntry(entry, instance, optCost);
+                OptCostInfo optInfo = getOptCostFromEntry(entry, instance);
 
                 std::cout << "Instancja: " << entry.name
                           << " | typ = " << instance.type
                           << " | n = " << instance.dimension << "\n";
+                printOptInfo(optInfo);
+
+                double randTimeForInstance = 0.0;
+                double randErrorForInstance = 0.0;
+                int randErrorRunsForInstance = 0;
 
                 for (int rep = 1; rep <= config.rand_repeats; rep++) {
+                    currentStep++;
+                    printBenchmarkProgress(
+                        config.progress,
+                        currentStep,
+                        totalSteps,
+                        "RAND | instancja=" + entry.name + " | rep=" + std::to_string(rep)
+                    );
+
                     unsigned int localSeed = config.seed + static_cast<unsigned int>(i * 1000 + rep);
 
                     RandResult randResult = RandSolver::solve(
@@ -189,7 +304,7 @@ int main(int argc, char* argv[]) {
                         false
                     );
 
-                    double randError = hasOptCost ? computeRelativeErrorPercent(randResult.bestCost, optCost) : 0.0;
+                    double randError = optInfo.available ? computeRelativeErrorPercent(randResult.bestCost, optInfo.cost) : 0.0;
 
                     CSVWriter::appendHeuristicRow(
                         config.output_csv,
@@ -200,24 +315,56 @@ int main(int argc, char* argv[]) {
                         rep,
                         -1,
                         randResult.bestCost,
-                        hasOptCost,
-                        optCost,
+                        optInfo.available,
+                        optInfo.cost,
                         randError,
                         randResult.timeMs
                     );
 
+                    long rss = getMemoryUsageOrMinusOne();
                     std::cout << "  RAND rep " << rep
                               << " | koszt = " << randResult.bestCost
-                              << " | czas [ms] = " << randResult.timeMs
-                              << " | pamiec [kB] = " << MemoryUsage::getCurrentRSSkB();
-                    if (hasOptCost) {
-                        std::cout << " | blad [%] = " << randError;
+                              << " | czas [ms] = " << randResult.timeMs;
+                    if (rss >= 0) {
+                        std::cout << " | pamiec [kB] = " << rss;
+                    } else {
+                        std::cout << " | pamiec [kB] = brak danych";
+                    }
+                    if (optInfo.available) {
+                        std::cout << " | opt = " << optInfo.cost
+                                  << " | blad [%] = " << randError;
                     }
                     std::cout << "\n";
+
+                    randTimeForInstance += randResult.timeMs;
+                    summary.randTimeSum += randResult.timeMs;
+                    summary.randRuns++;
+
+                    if (optInfo.available) {
+                        randErrorForInstance += randError;
+                        randErrorRunsForInstance++;
+                        summary.randErrorSum += randError;
+                        summary.randErrorRuns++;
+                    }
                 }
 
+                std::cout << "  RAND srednio dla instancji"
+                          << " | czas [ms] = " << safeAverage(randTimeForInstance, config.rand_repeats);
+                if (randErrorRunsForInstance > 0) {
+                    std::cout << " | avg blad [%] = " << safeAverage(randErrorForInstance, randErrorRunsForInstance);
+                }
+                std::cout << "\n";
+
+                currentStep++;
+                printBenchmarkProgress(
+                    config.progress,
+                    currentStep,
+                    totalSteps,
+                    "NN | instancja=" + entry.name
+                );
+
                 NNResult nnResult = NNSolver::solve(instance, config.nn_start_vertex);
-                double nnError = hasOptCost ? computeRelativeErrorPercent(nnResult.cost, optCost) : 0.0;
+                double nnError = optInfo.available ? computeRelativeErrorPercent(nnResult.cost, optInfo.cost) : 0.0;
 
                 CSVWriter::appendHeuristicRow(
                     config.output_csv,
@@ -228,23 +375,44 @@ int main(int argc, char* argv[]) {
                     1,
                     config.nn_start_vertex,
                     nnResult.cost,
-                    hasOptCost,
-                    optCost,
+                    optInfo.available,
+                    optInfo.cost,
                     nnError,
                     nnResult.timeMs
                 );
 
+                long nnRss = getMemoryUsageOrMinusOne();
                 std::cout << "  NN"
                           << " | koszt = " << nnResult.cost
-                          << " | czas [ms] = " << nnResult.timeMs
-                          << " | pamiec [kB] = " << MemoryUsage::getCurrentRSSkB();
-                if (hasOptCost) {
-                    std::cout << " | blad [%] = " << nnError;
+                          << " | czas [ms] = " << nnResult.timeMs;
+                if (nnRss >= 0) {
+                    std::cout << " | pamiec [kB] = " << nnRss;
+                } else {
+                    std::cout << " | pamiec [kB] = brak danych";
+                }
+                if (optInfo.available) {
+                    std::cout << " | opt = " << optInfo.cost
+                              << " | blad [%] = " << nnError;
                 }
                 std::cout << "\n";
 
+                summary.nnTimeSum += nnResult.timeMs;
+                summary.nnRuns++;
+                if (optInfo.available) {
+                    summary.nnErrorSum += nnError;
+                    summary.nnErrorRuns++;
+                }
+
+                currentStep++;
+                printBenchmarkProgress(
+                    config.progress,
+                    currentStep,
+                    totalSteps,
+                    "RNN | instancja=" + entry.name
+                );
+
                 RNNResult rnnResult = RNNSolver::solve(instance);
-                double rnnError = hasOptCost ? computeRelativeErrorPercent(rnnResult.bestCost, optCost) : 0.0;
+                double rnnError = optInfo.available ? computeRelativeErrorPercent(rnnResult.bestCost, optInfo.cost) : 0.0;
 
                 CSVWriter::appendHeuristicRow(
                     config.output_csv,
@@ -255,21 +423,58 @@ int main(int argc, char* argv[]) {
                     1,
                     rnnResult.bestStartVertex,
                     rnnResult.bestCost,
-                    hasOptCost,
-                    optCost,
+                    optInfo.available,
+                    optInfo.cost,
                     rnnError,
                     rnnResult.timeMs
                 );
 
+                long rnnRss = getMemoryUsageOrMinusOne();
                 std::cout << "  RNN"
                           << " | koszt = " << rnnResult.bestCost
                           << " | czas [ms] = " << rnnResult.timeMs
-                          << " | best start = " << rnnResult.bestStartVertex
-                          << " | pamiec [kB] = " << MemoryUsage::getCurrentRSSkB();
-                if (hasOptCost) {
-                    std::cout << " | blad [%] = " << rnnError;
+                          << " | best start = " << rnnResult.bestStartVertex;
+                if (rnnRss >= 0) {
+                    std::cout << " | pamiec [kB] = " << rnnRss;
+                } else {
+                    std::cout << " | pamiec [kB] = brak danych";
+                }
+                if (optInfo.available) {
+                    std::cout << " | opt = " << optInfo.cost
+                              << " | blad [%] = " << rnnError;
                 }
                 std::cout << "\n\n";
+
+                summary.rnnTimeSum += rnnResult.timeMs;
+                summary.rnnRuns++;
+                if (optInfo.available) {
+                    summary.rnnErrorSum += rnnError;
+                    summary.rnnErrorRuns++;
+                }
+            }
+
+            std::cout << "=== PODSUMOWANIE WG ROZMIARU (agreguje wszystkie instancje o tym samym n) ===\n";
+            for (std::map<int, HeuristicSummary>::const_iterator it = summariesByDimension.begin();
+                 it != summariesByDimension.end(); ++it) {
+                int n = it->first;
+                const HeuristicSummary& s = it->second;
+
+                std::cout << "n = " << n
+                          << " | RAND avg czas [ms] = " << safeAverage(s.randTimeSum, s.randRuns);
+                if (s.randErrorRuns > 0) {
+                    std::cout << " | RAND avg blad [%] = " << safeAverage(s.randErrorSum, s.randErrorRuns);
+                }
+
+                std::cout << " | NN avg czas [ms] = " << safeAverage(s.nnTimeSum, s.nnRuns);
+                if (s.nnErrorRuns > 0) {
+                    std::cout << " | NN avg blad [%] = " << safeAverage(s.nnErrorSum, s.nnErrorRuns);
+                }
+
+                std::cout << " | RNN avg czas [ms] = " << safeAverage(s.rnnTimeSum, s.rnnRuns);
+                if (s.rnnErrorRuns > 0) {
+                    std::cout << " | RNN avg blad [%] = " << safeAverage(s.rnnErrorSum, s.rnnErrorRuns);
+                }
+                std::cout << "\n";
             }
 
             std::cout << "Benchmark heurystyk zakonczony.\n";
@@ -298,6 +503,9 @@ int main(int argc, char* argv[]) {
             std::cout << "Liczba losowan: " << config.rand_trials << "\n";
             std::cout << "Seed: " << config.seed << "\n";
 
+            OptCostInfo optInfo = getOptCostFromConfig(config, instance);
+            printOptInfo(optInfo);
+
             RandResult result = RandSolver::solve(
                 instance,
                 config.rand_trials,
@@ -312,14 +520,16 @@ int main(int argc, char* argv[]) {
             std::cout << TourUtils::tourToString(result.bestTour) << "\n";
             printMemoryUsage();
 
-            int optCost = 0;
-            if (tryLoadOptCost(config, instance, optCost)) {
-                printRelativeError(result.bestCost, optCost);
+            if (optInfo.available) {
+                printRelativeError(result.bestCost, optInfo.cost);
             }
         }
         else if (config.mode == "nn") {
             std::cout << "\nUruchamiam NN...\n";
             std::cout << "Wierzcholek startowy: " << config.nn_start_vertex << "\n";
+
+            OptCostInfo optInfo = getOptCostFromConfig(config, instance);
+            printOptInfo(optInfo);
 
             NNResult result = NNSolver::solve(instance, config.nn_start_vertex);
 
@@ -330,13 +540,15 @@ int main(int argc, char* argv[]) {
             std::cout << TourUtils::tourToString(result.tour) << "\n";
             printMemoryUsage();
 
-            int optCost = 0;
-            if (tryLoadOptCost(config, instance, optCost)) {
-                printRelativeError(result.cost, optCost);
+            if (optInfo.available) {
+                printRelativeError(result.cost, optInfo.cost);
             }
         }
         else if (config.mode == "rnn") {
             std::cout << "\nUruchamiam RNN...\n";
+
+            OptCostInfo optInfo = getOptCostFromConfig(config, instance);
+            printOptInfo(optInfo);
 
             RNNResult result = RNNSolver::solve(instance);
 
@@ -348,13 +560,15 @@ int main(int argc, char* argv[]) {
             std::cout << TourUtils::tourToString(result.bestTour) << "\n";
             printMemoryUsage();
 
-            int optCost = 0;
-            if (tryLoadOptCost(config, instance, optCost)) {
-                printRelativeError(result.bestCost, optCost);
+            if (optInfo.available) {
+                printRelativeError(result.bestCost, optInfo.cost);
             }
         }
         else if (config.mode == "bf") {
             std::cout << "\nUruchamiam brute force...\n";
+
+            OptCostInfo optInfo = getOptCostFromConfig(config, instance);
+            printOptInfo(optInfo);
 
             BruteForceResult result = BruteForceSolver::solve(instance, config.progress);
 
@@ -366,21 +580,15 @@ int main(int argc, char* argv[]) {
             std::cout << TourUtils::tourToString(result.bestTour) << "\n";
             printMemoryUsage();
 
-            int optCost = 0;
-            if (tryLoadOptCost(config, instance, optCost)) {
-                printRelativeError(result.bestCost, optCost);
+            if (optInfo.available) {
+                printRelativeError(result.bestCost, optInfo.cost);
             }
         }
         else if (config.mode == "check_opt") {
-            if (config.opt_tour_file.empty()) {
-                throw std::runtime_error("Brak opt_tour_file w configu.");
-            }
-
-            std::vector<int> optTour = OptTourReader::loadTour(config.opt_tour_file);
-
             std::cout << "\nSprawdzam trase optymalna...\n";
             std::cout << "Plik .opt.tour: " << config.opt_tour_file << "\n";
 
+            std::vector<int> optTour = OptTourReader::loadTour(config.opt_tour_file);
             if (!TourUtils::isValidTour(optTour, instance.dimension)) {
                 throw std::runtime_error("Wczytana trasa optymalna jest niepoprawna.");
             }
@@ -393,7 +601,7 @@ int main(int argc, char* argv[]) {
             std::cout << TourUtils::tourToString(optTour) << "\n";
         }
         else {
-            std::cout << "\nNieznany tryb.\n";
+            throw std::runtime_error("Nieznany tryb: " + config.mode);
         }
     }
     catch (const std::exception& e) {

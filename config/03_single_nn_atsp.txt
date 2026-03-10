@@ -1,0 +1,6 @@
+mode=nn
+instance_file=data/atsp/ftv38.atsp
+single_opt_cost=1530
+
+nn_start_vertex=0
+show_matrix=false

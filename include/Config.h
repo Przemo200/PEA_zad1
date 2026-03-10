@@ -32,6 +32,9 @@ struct Config {
 class ConfigLoader {
 public:
     static Config loadFromFile(const std::string& path);
+
+private:
+    static void validate(const Config& config);
 };
 
 #endif

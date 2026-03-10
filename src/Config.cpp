@@ -56,7 +56,7 @@ Config ConfigLoader::loadFromFile(const std::string& path) {
         std::string value = trim(line.substr(eq + 1));
 
         if (key == "mode") {
-            config.mode = value;
+            config.mode = toLower(value);
         } else if (key == "instance_file") {
             config.instance_file = value;
         } else if (key == "opt_tour_file") {
@@ -94,5 +94,51 @@ Config ConfigLoader::loadFromFile(const std::string& path) {
         }
     }
 
+    validate(config);
     return config;
+}
+
+void ConfigLoader::validate(const Config& config) {
+    if (config.mode.empty()) {
+        throw std::runtime_error("Brak pola mode w pliku konfiguracyjnym.");
+    }
+
+    if (config.rand_trials <= 0) {
+        throw std::runtime_error("rand_trials musi byc > 0.");
+    }
+
+    if (config.rand_repeats <= 0) {
+        throw std::runtime_error("rand_repeats musi byc > 0.");
+    }
+
+    if (config.bf_min_n <= 0 || config.bf_max_n <= 0) {
+        throw std::runtime_error("bf_min_n i bf_max_n musza byc > 0.");
+    }
+
+    if (config.bf_min_n > config.bf_max_n) {
+        throw std::runtime_error("bf_min_n nie moze byc wieksze od bf_max_n.");
+    }
+
+    if (config.bf_instances_per_size <= 0) {
+        throw std::runtime_error("bf_instances_per_size musi byc > 0.");
+    }
+
+    if (config.weight_min > config.weight_max) {
+        throw std::runtime_error("weight_min nie moze byc wieksze od weight_max.");
+    }
+
+    if (config.mode == "test_read" || config.mode == "rand" || config.mode == "nn" ||
+        config.mode == "rnn" || config.mode == "bf" || config.mode == "check_opt") {
+        if (config.instance_file.empty()) {
+            throw std::runtime_error("Dla tego trybu wymagane jest instance_file.");
+        }
+    }
+
+    if (config.mode == "check_opt" && config.opt_tour_file.empty()) {
+        throw std::runtime_error("Dla trybu check_opt wymagane jest opt_tour_file.");
+    }
+
+    if (config.mode == "benchmark_heuristics" && config.heuristics_list_file.empty()) {
+        throw std::runtime_error("Dla trybu benchmark_heuristics wymagane jest heuristics_list_file.");
+    }
 }

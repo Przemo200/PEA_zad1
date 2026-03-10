@@ -1,0 +1,3 @@
+mode=test_read
+instance_file=data/tsp/att48.tsp
+show_matrix=false
