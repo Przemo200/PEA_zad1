@@ -509,7 +509,7 @@ int main(int argc, char* argv[]) {
         }
 
         if (config.mode == "test_read") {
-            std::cout << "\nWypisanie macierzy dziala poprawnie.\n";
+            std::cout << "Poprawnie wczytano";
         }
         else if (config.mode == "rand") {
             std::cout << "\nUruchamiam RAND...\n";
