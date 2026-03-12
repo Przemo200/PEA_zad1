@@ -69,6 +69,92 @@ namespace {
         return path.substr(pos + 1);
     }
 
+    bool isPureIntegerLine(const std::string& line) {
+        std::stringstream ss(line);
+        int x;
+        char extra;
+        if (!(ss >> x)) {
+            return false;
+        }
+        if (ss >> extra) {
+            return false;
+        }
+        return true;
+    }
+
+    std::string inferTypeFromPath(const std::string& path) {
+        std::string upper = toUpper(path);
+        if (upper.size() >= 5 && upper.substr(upper.size() - 5) == ".ATSP") {
+            return "ATSP";
+        }
+        return "TSP";
+    }
+
+    TSPInstance loadSimpleMatrixInstance(const std::string& path) {
+        std::ifstream file(path);
+        if (!file.is_open()) {
+            throw std::runtime_error("Nie mozna otworzyc pliku instancji: " + path);
+        }
+
+        std::vector<std::string> lines;
+        std::string line;
+        while (std::getline(file, line)) {
+            line = trim(line);
+            if (line.empty()) {
+                continue;
+            }
+            lines.push_back(line);
+        }
+
+        if (lines.empty()) {
+            throw std::runtime_error("Pusty plik instancji: " + path);
+        }
+
+        if (!isPureIntegerLine(lines[0])) {
+            throw std::runtime_error("To nie jest prosty plik macierzy.");
+        }
+
+        int n = std::stoi(lines[0]);
+        if (n <= 0) {
+            throw std::runtime_error("Niepoprawny rozmiar macierzy w pliku: " + path);
+        }
+
+        if (static_cast<int>(lines.size()) < n + 1) {
+            throw std::runtime_error("Za malo wierszy macierzy w pliku: " + path);
+        }
+
+        std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
+
+        for (int i = 0; i < n; i++) {
+            std::stringstream ss(lines[i + 1]);
+            for (int j = 0; j < n; j++) {
+                if (!(ss >> matrix[i][j])) {
+                    throw std::runtime_error("Niepoprawny wiersz macierzy nr " + std::to_string(i + 1) +
+                                             " w pliku: " + path);
+                }
+            }
+
+            int extra;
+            if (ss >> extra) {
+                throw std::runtime_error("Za duzo liczb w wierszu macierzy nr " + std::to_string(i + 1) +
+                                         " w pliku: " + path);
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            matrix[i][i] = 0;
+        }
+
+        TSPInstance instance;
+        instance.name = fileNameOnly(path);
+        instance.type = inferTypeFromPath(path);
+        instance.edgeWeightType = "EXPLICIT";
+        instance.dimension = n;
+        instance.matrix = matrix;
+
+        return instance;
+    }
+
     int distEUC2D(double x1, double y1, double x2, double y2) {
         double dx = x1 - x2;
         double dy = y1 - y2;
@@ -135,9 +221,9 @@ namespace {
     }
 
     std::vector<std::vector<int>> buildLowerDiagRowMatrix(
-    int n,
-    const std::vector<int>& numbers
-) {
+        int n,
+        const std::vector<int>& numbers
+    ) {
         int needed = n * (n + 1) / 2;
         if (static_cast<int>(numbers.size()) < needed) {
             throw std::runtime_error("Za malo liczb dla LOWER_DIAG_ROW.");
@@ -183,6 +269,25 @@ namespace {
 }
 
 TSPInstance FileReader::loadInstance(const std::string& path) {
+    {
+        std::ifstream probe(path);
+        if (!probe.is_open()) {
+            throw std::runtime_error("Nie mozna otworzyc pliku instancji: " + path);
+        }
+
+        std::string firstMeaningfulLine;
+        while (std::getline(probe, firstMeaningfulLine)) {
+            firstMeaningfulLine = trim(firstMeaningfulLine);
+            if (!firstMeaningfulLine.empty()) {
+                break;
+            }
+        }
+
+        if (!firstMeaningfulLine.empty() && isPureIntegerLine(firstMeaningfulLine)) {
+            return loadSimpleMatrixInstance(path);
+        }
+    }
+
     std::ifstream file(path);
     if (!file.is_open()) {
         throw std::runtime_error("Nie mozna otworzyc pliku instancji: " + path);

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+  </component>
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="PEA_zad1" targetName="pea_zad1" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="778dfcc8-6d53-4cd3-8d78-5cbd6fda219f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data/macierze_atsp_eportal/matrix_11x11.atsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/macierze_atsp_eportal/matrix_6x6.atsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/macierze_atsp_eportal/matrix_8x8.atsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.28.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/3.28.3/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/FileReader.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/FileReader.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/pea_zad1" beforeDir="false" afterPath="$PROJECT_DIR$/build/pea_zad1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/05_heuristics_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/05_heuristics_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/06_heuristics_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/06_heuristics_atsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/07_bf_tsp_6_12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/07_bf_tsp_6_12.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/08_bf_atsp_6_12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/08_bf_atsp_6_12.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/10_bf_atsp_13_15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/10_bf_atsp_13_15.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/heuristics_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/heuristics_tsp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/bf_atsp_final(6-12).csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/bf_tsp_final(6-12).csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/heuristics_atsp.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/heuristics_tsp.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/rand_trials_study.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileReader.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Przemo200"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Przemo200/PEA_zad1.git",
+    "accountId": "ef58ad4a-edb5-4eda-a87b-4744532c3fd0"
+  }
+}]]></component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="2.3" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="3AoGnsZP3C1K4Oz1jzHfkXr3gWJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.pea_zad1.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "SHELLCHECK.PATH": "I do mind",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/data/atsp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/atsp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/macierze_atsp_eportal" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pea_zad1" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="config/05_heuristics_tsp.txt" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PEA_zad1" TARGET_NAME="pea_zad1" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="PEA_zad1" RUN_TARGET_NAME="pea_zad1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="778dfcc8-6d53-4cd3-8d78-5cbd6fda219f" name="Changes" comment="" />
+      <created>1773251680073</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773251680073</updated>
+      <workItem from="1773251682536" duration="14161000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>

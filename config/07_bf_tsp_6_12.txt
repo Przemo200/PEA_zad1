@@ -4,7 +4,7 @@ output_csv=results/bf_tsp_final(6-12).csv
 
 bf_min_n=6
 bf_max_n=12
-bf_instances_per_size=5
+bf_instances_per_size=10
 
 weight_min=1
 weight_max=100

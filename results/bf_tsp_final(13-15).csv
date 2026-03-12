@@ -1,0 +1,5 @@
+algorithm,instance_type,n,instance_id,best_cost,time_ms,checked_permutations
+BF,TSP,13,1,214,319944,239500800
+BF,TSP,13,2,101,318919,239500800
+BF,TSP,14,1,218,4.37975e+06,3113510400
+BF,TSP,14,2,156,4.36849e+06,3113510400

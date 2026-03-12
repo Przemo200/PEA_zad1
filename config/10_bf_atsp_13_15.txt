@@ -9,4 +9,4 @@ bf_instances_per_size=1
 weight_min=1
 weight_max=100
 seed=12345
-progress=true
+progress=false

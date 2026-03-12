@@ -2,7 +2,7 @@ mode=benchmark_heuristics
 heuristics_list_file=config/heuristics_tsp.txt
 output_csv=results/heuristics_tsp.csv
 
-rand_trials=100000
+rand_trials=10000000
 rand_repeats=5
 nn_start_vertex=0
 seed=12345
