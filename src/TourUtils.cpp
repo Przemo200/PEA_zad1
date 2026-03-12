@@ -3,6 +3,7 @@
 
 namespace TourUtils {
 
+    // czy dlugosc rowna n, czy wierzcholki sie nie powtarzaja
     bool isValidTour(const std::vector<int>& tour, int n) {
         if (static_cast<int>(tour.size()) != n) {
             return false;
@@ -22,7 +23,7 @@ namespace TourUtils {
 
         return true;
     }
-
+// liczy koszt cyklu hamiltona
     int calculateTourCost(const TSPInstance& instance, const std::vector<int>& tour) {
         if (!isValidTour(tour, instance.dimension)) {
             return -1;
@@ -36,7 +37,7 @@ namespace TourUtils {
             int to = tour[i + 1];
             cost += instance.matrix[from][to];
         }
-
+        // domkniecie cyklu hamiltona
         cost += instance.matrix[tour[n - 1]][tour[0]];
         return cost;
     }

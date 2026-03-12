@@ -7,19 +7,22 @@
 #include <vector>
 
 namespace {
+    // lista miast ktora pozniej sie tasuje
     void generateIdentityTour(std::vector<int>& tour, int n) {
         tour.resize(n);
         for (int i = 0; i < n; i++) {
             tour[i] = i;
         }
     }
-
+    // nie od indeks 0 tylko od 1
+    // idzie od konca tablicy do poczatku, dla kazdego i losuje j z zakresu 1 do i i zamienia [i] z [j]
+    // zlozonosc fisher yatesa to O(n). jest tez algorytm Heapa, ale nie zaglebialem sie w niego (zamiana pary)
     void fisherYatesShuffleFromSecond(std::vector<int>& tour, std::mt19937& rng) {
         int n = static_cast<int>(tour.size());
 
-        // zostawiamy tour[0] = 0 jako ustalony start
+        // zostawiamy tour[0] = 0 jako ustalony start, bo 0-1-2-0 to to samo co 1-2-0-1
         for (int i = n - 1; i >= 2; i--) {
-            std::uniform_int_distribution<int> dist(1, i);
+            std::uniform_int_distribution<int> dist(1, i); // rownomierne prawdopodobienstwo na kazda z przedzialu
             int j = dist(rng);
 
             int temp = tour[i];
@@ -29,6 +32,8 @@ namespace {
     }
 }
 
+// przyjmuje instancje, okreslona liczbe sciezek, seed i info czy pokazac progres
+// jako ze FY to O(n) a koszt trasy to tez O(n) to ogolna zlozonosc tego bedzie O(trials * n)
 RandResult RandSolver::solve(const TSPInstance& instance, int trials, unsigned int seed, bool progress) {
     RandResult result;
 
@@ -50,13 +55,14 @@ RandResult RandSolver::solve(const TSPInstance& instance, int trials, unsigned i
 
     std::vector<int> currentTour;
     generateIdentityTour(currentTour, n);
-
+    // na start jakis wielki wynik
     int bestCost = std::numeric_limits<int>::max();
     std::vector<int> bestTour = currentTour;
 
     auto start = std::chrono::steady_clock::now();
 
     for (int t = 0; t < trials; t++) {
+        // trasa bazowa, fisher yates, koszt i jak lepszy od aktualnego best to nadpisywany
         generateIdentityTour(currentTour, n);
         fisherYatesShuffleFromSecond(currentTour, rng);
 
@@ -80,7 +86,7 @@ RandResult RandSolver::solve(const TSPInstance& instance, int trials, unsigned i
         }
     }
 
-    auto end = std::chrono::steady_clock::now();
+    auto end = std::chrono::steady_clock::now();  // nie skacze, niezalezny na zmiany
 
     result.bestTour = bestTour;
     result.bestCost = bestCost;

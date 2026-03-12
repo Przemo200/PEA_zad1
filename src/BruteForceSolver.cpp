@@ -24,6 +24,7 @@ namespace {
         return true;
     }
 
+    // obraca fragment tablicy od left do right, uzywane w next permutation
     void reverseRange(std::vector<int>& arr, int left, int right) {
         while (left < right) {
             int temp = arr[left];
@@ -34,13 +35,14 @@ namespace {
         }
     }
 
+    // porzadek leksykograficzny
     bool nextPermutationManual(std::vector<int>& arr) {
         int n = static_cast<int>(arr.size());
         if (n <= 1) {
             return false;
         }
 
-        // 1. znajdź od końca pierwszy indeks i taki, że arr[i] < arr[i+1]
+        // znajduje od końca pierwszy indeks i taki, że arr[i] < arr[i+1]
         int i = n - 2;
         while (i >= 0 && arr[i] >= arr[i + 1]) {
             i--;
@@ -50,23 +52,25 @@ namespace {
             return false; // to była ostatnia permutacja
         }
 
-        // 2. znajdź od końca pierwszy element większy niż arr[i]
+        // znajduje od końca pierwszy element większy niż arr[i]
         int j = n - 1;
         while (arr[j] <= arr[i]) {
             j--;
         }
 
-        // 3. zamień arr[i] z arr[j]
+        // zamienia arr[i] z arr[j]
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
 
-        // 4. odwróć suffix
+        // odwraca sufiks co daje najmniejsza mozliwa kontunujacje po zmianie prefiksu.
+        // kazda permutacja przechodzi systematycznie, nie jest pomijana ani losowana
         reverseRange(arr, i + 1, n - 1);
 
         return true;
     }
 
+    // poczatkowa permutacja, bez 0 bo 0 to start
     void buildInitialPermutation(std::vector<int>& perm, int n) {
         perm.resize(n - 1);
         for (int i = 0; i < n - 1; i++) {
@@ -80,7 +84,7 @@ BruteForceResult BruteForceSolver::solve(const TSPInstance& instance, bool progr
 
     int n = instance.dimension;
     if (n <= 0) {
-        throw std::runtime_error("Instancja ma niepoprawny rozmiar.");
+        throw std::runtime_error("Instancja ma niepoprawny rozmiar");
     }
 
     if (n == 1) {
@@ -91,19 +95,23 @@ BruteForceResult BruteForceSolver::solve(const TSPInstance& instance, bool progr
         return result;
     }
 
+    // poczatkowa permutacja 1...n-1 (i 0 na start)
     std::vector<int> perm;
     buildInitialPermutation(perm, n);
 
-    bool symmetric = isSymmetricTSP(instance);
+    bool symmetric = isSymmetricTSP(instance); // to do tego czy mozna pomijac lustrzane
 
-    int bestCost = std::numeric_limits<int>::max();
+    int bestCost = std::numeric_limits<int>::max(); //duzy na start, z limist, tak jak w innych
     std::vector<int> bestTour;
-    long long checked = 0;
+    long long checked = 0; //sprawdzone permutacje
 
     auto startTime = std::chrono::steady_clock::now();
 
+    // dopoki sa jeszcze permutacje
     bool hasMore = true;
     while (hasMore) {
+        // jesli symetryczna i pierwszy element perm jest wiekszy niz ostatni to nie sprawdzam
+        // 1 2 3 4 to to samo co 4 3 2 1 dolaczajac 0 w tsp
         if (!(symmetric && !perm.empty() && perm.front() > perm.back())) {
             std::vector<int> tour;
             tour.reserve(n);
@@ -116,6 +124,7 @@ BruteForceResult BruteForceSolver::solve(const TSPInstance& instance, bool progr
             int cost = TourUtils::calculateTourCost(instance, tour);
             checked++;
 
+            // wybor minimum kosztu
             if (cost < bestCost) {
                 bestCost = cost;
                 bestTour = tour;

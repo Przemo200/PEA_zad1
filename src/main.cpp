@@ -19,11 +19,12 @@
 #include "../include/InstanceListReader.h"
 #include "../include/MemoryUsage.h"
 
+// struktura do zbierania sum czasow i bledow algorytmow zeby wyciagnac srednie
 struct HeuristicSummary {
     double randTimeSum = 0.0;
     double randErrorSum = 0.0;
-    int randRuns = 0;
-    int randErrorRuns = 0;
+    int randRuns = 0; //liczba uruhcomien uwzglednionych do liczenia sredniego czasu
+    int randErrorRuns = 0; // liczba uruchomien dla ktrych mozna bylo policzyc blad wzgledny
 
     double nnTimeSum = 0.0;
     double nnErrorSum = 0.0;
@@ -36,12 +37,14 @@ struct HeuristicSummary {
     int rnnErrorRuns = 0;
 };
 
+// info o optimum - jakie i czy "z palca" czy z pliku
 struct OptCostInfo {
     bool available = false;
     int cost = -1;
     std::string source;
 };
 
+// tylko gdy show matrix jest true w configach
 static void printMatrix(const TSPInstance& instance) {
     std::cout << "\nMacierz kosztow:\n";
     for (int i = 0; i < instance.dimension; i++) {
@@ -52,14 +55,16 @@ static void printMatrix(const TSPInstance& instance) {
     }
 }
 
+// to jest dla pojedynczych uruchomien
 static OptCostInfo getOptCostFromConfig(const Config& config, const TSPInstance& instance) {
     OptCostInfo info;
 
+    //jak plik z opt podany to przez reader
     if (!config.opt_tour_file.empty()) {
         std::vector<int> optTour = OptTourReader::loadTour(config.opt_tour_file);
-
-        if (!TourUtils::isValidTour(optTour, instance.dimension)) {
-            throw std::runtime_error("Wczytana trasa optymalna jest niepoprawna.");
+        //sprawdza poprawnosc trasy optymalnej
+        if (!TourUtils::isValidTour(optTour, instance.dimension)) { // czy n wierzcholkow, czy sie nie powtarzaja
+            throw std::runtime_error("Wczytana trasa optymalna jest niepoprawna");
         }
 
         info.available = true;
@@ -67,7 +72,7 @@ static OptCostInfo getOptCostFromConfig(const Config& config, const TSPInstance&
         info.source = ".opt.tour";
         return info;
     }
-
+    // jak nie plik to to co z palca w liscie instancji
     if (config.single_opt_cost > 0) {
         info.available = true;
         info.cost = config.single_opt_cost;
@@ -78,6 +83,7 @@ static OptCostInfo getOptCostFromConfig(const Config& config, const TSPInstance&
     return info;
 }
 
+// tu bierze z pliku z listy instacji, entry jest dla benchmarkow
 static OptCostInfo getOptCostFromEntry(const InstanceListEntry& entry, const TSPInstance& instance) {
     OptCostInfo info;
 
@@ -85,7 +91,7 @@ static OptCostInfo getOptCostFromEntry(const InstanceListEntry& entry, const TSP
         std::vector<int> optTour = OptTourReader::loadTour(entry.optTourFile);
 
         if (!TourUtils::isValidTour(optTour, instance.dimension)) {
-            throw std::runtime_error("Wczytana trasa optymalna z listy instancji jest niepoprawna.");
+            throw std::runtime_error("Wczytana trasa optymalna z listy instancji jest niepoprawna");
         }
 
         info.available = true;
@@ -104,16 +110,19 @@ static OptCostInfo getOptCostFromEntry(const InstanceListEntry& entry, const TSP
     return info;
 }
 
+// blad wzgledny zgodnie ze wzorem
 static double computeRelativeErrorPercent(int cost, int optCost) {
     return 100.0 * (static_cast<double>(cost - optCost) / static_cast<double>(optCost));
 }
 
+// optymalny i blad wzgledny - wypisywanie
 static void printRelativeError(int cost, int optCost) {
     double error = computeRelativeErrorPercent(cost, optCost);
     std::cout << "Koszt optymalny / best known: " << optCost << "\n";
     std::cout << "Blad wzgledny [%]: " << error << "\n";
 }
 
+// optymalny i skad pochodzi lub info o braku
 static void printOptInfo(const OptCostInfo& info) {
     if (info.available) {
         std::cout << "Koszt optymalny / best known: " << info.cost
@@ -124,6 +133,7 @@ static void printOptInfo(const OptCostInfo& info) {
     }
 }
 
+// patrzy na typ podany w configu dla brute forca i generuje albo tsp albo atsp
 static TSPInstance generateInstanceFromConfig(const Config& config, int n, unsigned int seed) {
     std::string typeUpper = config.generated_type;
     std::transform(typeUpper.begin(), typeUpper.end(), typeUpper.begin(),
@@ -135,13 +145,15 @@ static TSPInstance generateInstanceFromConfig(const Config& config, int n, unsig
         return Generator::generateTSP(n, config.weight_min, config.weight_max, seed);
     }
 
-    throw std::runtime_error("generated_type musi byc ATSP albo TSP.");
+    throw std::runtime_error("generated_type musi byc ATSP albo TSP");
 }
 
+// nakladka dla memory usage, albo uda sie odczytac albo -1
 static long getMemoryUsageOrMinusOne() {
     return MemoryUsage::getCurrentRSSkB();
 }
 
+// wypisanie zuzycia pamieci VmRSS
 static void printMemoryUsage() {
     long rss = getMemoryUsageOrMinusOne();
     if (rss >= 0) {
@@ -151,6 +163,7 @@ static void printMemoryUsage() {
     }
 }
 
+// dla sredniego czasu, pamieci
 static double safeAverage(double sum, int count) {
     return (count > 0) ? (sum / static_cast<double>(count)) : 0.0;
 }
@@ -453,7 +466,7 @@ int main(int argc, char* argv[]) {
                 }
             }
 
-            std::cout << "=== PODSUMOWANIE WG ROZMIARU (agreguje wszystkie instancje o tym samym n) ===\n";
+            std::cout << "=== PODSUMOWANIE WG ROZMIARU ===\n";
             for (std::map<int, HeuristicSummary>::const_iterator it = summariesByDimension.begin();
                  it != summariesByDimension.end(); ++it) {
                 int n = it->first;
@@ -477,7 +490,7 @@ int main(int argc, char* argv[]) {
                 std::cout << "\n";
             }
 
-            std::cout << "Benchmark heurystyk zakonczony.\n";
+            std::cout << "Benchmark heurystyk zakonczony\n";
             return 0;
         }
 
@@ -496,7 +509,7 @@ int main(int argc, char* argv[]) {
         }
 
         if (config.mode == "test_read") {
-            std::cout << "\nEtap 1 nadal dziala poprawnie.\n";
+            std::cout << "\nWypisanie macierzy dziala poprawnie.\n";
         }
         else if (config.mode == "rand") {
             std::cout << "\nUruchamiam RAND...\n";
@@ -590,7 +603,7 @@ int main(int argc, char* argv[]) {
 
             std::vector<int> optTour = OptTourReader::loadTour(config.opt_tour_file);
             if (!TourUtils::isValidTour(optTour, instance.dimension)) {
-                throw std::runtime_error("Wczytana trasa optymalna jest niepoprawna.");
+                throw std::runtime_error("Wczytana trasa optymalna jest niepoprawna");
             }
 
             int optCost = TourUtils::calculateTourCost(instance, optTour);

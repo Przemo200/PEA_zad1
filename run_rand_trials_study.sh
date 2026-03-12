@@ -7,7 +7,7 @@ OUT_DIR="results"
 OUT_CSV="${OUT_DIR}/rand_trials_study.csv"
 TMP_CFG="${OUT_DIR}/tmp_rand_config.txt"
 
-TRIALS=(100 500 1000 2000 5000 10000 20000 50000 500000 2000000)
+TRIALS=(100 1000 10000 100000 1000000 10000000)
 REPEATS=5
 BASE_SEED=12345
 
@@ -16,6 +16,7 @@ mkdir -p "${OUT_DIR}"
 echo "set_type,instance_name,instance_file,note_trials,repeat_id,seed,best_cost,opt_cost,error_percent,time_ms" > "${OUT_CSV}"
 
 run_list() {
+    # przyjmuje plik listy instancji i typ tsp/atsp
     local list_file="$1"
     local set_type="$2"
 
@@ -26,7 +27,7 @@ run_list() {
 
         for trials in "${TRIALS[@]}"; do
             for rep in $(seq 1 "${REPEATS}"); do
-                local seed=$((BASE_SEED + trials * 100 + rep))
+                local seed=$((BASE_SEED + trials * 100 + rep)) # ziarno losowe
 
                 {
                     echo "mode=rand"
@@ -40,17 +41,19 @@ run_list() {
                     echo "seed=${seed}"
                     echo "progress=false"
                     echo "show_matrix=false"
-                } > "${TMP_CFG}"
+                } > "${TMP_CFG}" # robi temp plik z polami jako plik konfiguracyjny
 
-                output="$("${APP}" "${TMP_CFG}")"
+                output="$("${APP}" "${TMP_CFG}")" #uruchamia program i zapisuje do output i z output wyciaga rzeczy grep
 
                 best_cost="$(echo "${output}" | grep -m1 "Najlepszy koszt:" | sed 's/.*Najlepszy koszt: //')"
                 opt_value="$(echo "${output}" | grep -m1 "Koszt optymalny / best known:" | sed 's/.*Koszt optymalny \/ best known: //' | sed 's/ .*//')"
                 error_percent="$(echo "${output}" | grep -m1 "Blad wzgledny \[%\]:" | sed 's/.*Blad wzgledny \[%\]: //')"
                 time_ms="$(echo "${output}" | grep -m1 "Czas \[ms\]:" | sed 's/.*Czas \[ms\]: //')"
 
+                # zapisuje do csv
                 echo "${set_type},${name},${instance_file},${trials},${rep},${seed},${best_cost},${opt_value},${error_percent},${time_ms}" >> "${OUT_CSV}"
 
+                # krotki log na ekran
                 echo "[OK] ${set_type} | ${name} | trials=${trials} | rep=${rep}"
             done
         done

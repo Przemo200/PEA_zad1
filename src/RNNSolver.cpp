@@ -6,6 +6,8 @@
 #include <vector>
 
 namespace {
+    // najwazniejsze, dostaje instancje, biezacy wiercholek, aktualnie budowana trase, globalnie najlepszy koszt i trase
+    // startowy vertex i najlepszy start znaleziony do tej pory
     void dfsNearestTies(
         const TSPInstance& instance,
         int current,
@@ -18,6 +20,7 @@ namespace {
     ) {
         int n = instance.dimension;
 
+        // jak size n to kazde miasto w trasie, wiec koszt pelnej trasy, porownanie z global best i jak lepszy to zapisanie
         if (static_cast<int>(currentTour.size()) == n) {
             int cost = TourUtils::calculateTourCost(instance, currentTour);
             if (cost < globalBestCost) {
@@ -31,6 +34,8 @@ namespace {
         int minCost = std::numeric_limits<int>::max();
         std::vector<int> candidates;
 
+        // dla kazdego nieodwiedzonego v jak edge cost < mincost i znalazl lepszy i wrzyca tylko ten koszt
+        // ale jak edgecost jak mincost to dopisuje v do kandydatow - wszystkie lokalnie najlepsze ruchy
         for (int v = 0; v < n; v++) {
             if (visited[v]) {
                 continue;
@@ -51,6 +56,7 @@ namespace {
             return;
         }
 
+        // jak lista nie pusta to kanddat jak odiwedzony, dopisuje go do trasy i rekurencyjnie dfs, pozniej popback i nastepna trasa
         for (int next : candidates) {
             visited[next] = true;
             currentTour.push_back(next);
@@ -77,11 +83,11 @@ RNNResult RNNSolver::solve(const TSPInstance& instance) {
 
     int n = instance.dimension;
     if (n <= 0) {
-        throw std::runtime_error("Instancja ma niepoprawny rozmiar.");
+        throw std::runtime_error("Instancja ma niepoprawny rozmiar");
     }
 
     auto startTime = std::chrono::steady_clock::now();
-
+    // na start koszt z limits i start vertex tez hard coded
     int bestCost = std::numeric_limits<int>::max();
     std::vector<int> bestTour;
     int bestStartVertex = -1;

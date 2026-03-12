@@ -12,6 +12,7 @@ struct NodeCoord {
     double y;
 };
 
+// pomocnicze
 namespace {
     std::string trim(const std::string& s) {
         size_t start = 0;
@@ -41,6 +42,7 @@ namespace {
         return trim(line.substr(pos + 1));
     }
 
+    // np dimension = 48 to wezmie 48
     int lastIntegerInLine(const std::string& line) {
         std::stringstream ss(line);
         std::string token;
@@ -55,7 +57,7 @@ namespace {
 
         return value;
     }
-
+    // zwroci tylko nazwe np att48.tsp
     std::string fileNameOnly(const std::string& path) {
         size_t p1 = path.find_last_of('/');
         size_t p2 = path.find_last_of('\\');
@@ -68,7 +70,7 @@ namespace {
         if (pos == std::string::npos) return path;
         return path.substr(pos + 1);
     }
-
+    // rozpoznanie czy sie macierz zacznie
     bool isPureIntegerLine(const std::string& line) {
         std::stringstream ss(line);
         int x;
@@ -81,7 +83,7 @@ namespace {
         }
         return true;
     }
-
+    // type atsp tsp jak podane
     std::string inferTypeFromPath(const std::string& path) {
         std::string upper = toUpper(path);
         if (upper.size() >= 5 && upper.substr(upper.size() - 5) == ".ATSP") {
@@ -90,6 +92,7 @@ namespace {
         return "TSP";
     }
 
+    // to do macierzy z eportalu, dla prostych macierzy - otwiera, zbiera niepuste linie, odzcytuje n miast, przekatna zerami i tworzy tsp instance
     TSPInstance loadSimpleMatrixInstance(const std::string& path) {
         std::ifstream file(path);
         if (!file.is_open()) {
@@ -111,7 +114,7 @@ namespace {
         }
 
         if (!isPureIntegerLine(lines[0])) {
-            throw std::runtime_error("To nie jest prosty plik macierzy.");
+            throw std::runtime_error("To nie jest prosty plik macierzy");
         }
 
         int n = std::stoi(lines[0]);
@@ -161,7 +164,7 @@ namespace {
         double d = std::sqrt(dx * dx + dy * dy);
         return static_cast<int>(std::lround(d));
     }
-
+    // pseudo euklides uzywany w tsp lib,, taki wzorek z pierwiastkiem i kwadratami dzielony przez 10
     int distATT(double x1, double y1, double x2, double y2) {
         double dx = x1 - x2;
         double dy = y1 - y2;
@@ -173,6 +176,7 @@ namespace {
         return tij;
     }
 
+    // punkty z noode corde i koszt miedzy nimi z euklidesa dla euc2d i pseudo dla att; 0 na przekatnych
     std::vector<std::vector<int>> buildMatrixFromCoords(
         const std::vector<NodeCoord>& coords,
         const std::string& edgeWeightType
@@ -200,12 +204,13 @@ namespace {
         return matrix;
     }
 
+    // dla full matrix
     std::vector<std::vector<int>> buildFullMatrixFromNumbers(
         int n,
         const std::vector<int>& numbers
     ) {
         if (static_cast<int>(numbers.size()) < n * n) {
-            throw std::runtime_error("Za malo liczb dla FULL_MATRIX.");
+            throw std::runtime_error("Za malo liczb dla FULL_MATRIX");
         }
 
         std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
@@ -220,13 +225,14 @@ namespace {
         return matrix;
     }
 
+    // dolna czesc macierzy, dla tsp
     std::vector<std::vector<int>> buildLowerDiagRowMatrix(
         int n,
         const std::vector<int>& numbers
     ) {
         int needed = n * (n + 1) / 2;
         if (static_cast<int>(numbers.size()) < needed) {
-            throw std::runtime_error("Za malo liczb dla LOWER_DIAG_ROW.");
+            throw std::runtime_error("Za malo liczb dla LOWER_DIAG_ROW");
         }
 
         std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
@@ -243,13 +249,14 @@ namespace {
         return matrix;
     }
 
+    // tu gorna czesc macierzy, tez dla tsp
     std::vector<std::vector<int>> buildUpperRowMatrix(
         int n,
         const std::vector<int>& numbers
     ) {
         int needed = n * (n - 1) / 2;
         if (static_cast<int>(numbers.size()) < needed) {
-            throw std::runtime_error("Za malo liczb dla UPPER_ROW.");
+            throw std::runtime_error("Za malo liczb dla UPPER_ROW");
         }
 
         std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 0));
@@ -268,13 +275,14 @@ namespace {
     }
 }
 
+// main to wola gdy chce wczytac instancje
 TSPInstance FileReader::loadInstance(const std::string& path) {
     {
         std::ifstream probe(path);
         if (!probe.is_open()) {
             throw std::runtime_error("Nie mozna otworzyc pliku instancji: " + path);
         }
-
+        // sprawdza format jak nie format tsplib a liczba w pierwszej to prosta macierz (eportal) a jak nie to format tsplib i dalej to sprawdza
         std::string firstMeaningfulLine;
         while (std::getline(probe, firstMeaningfulLine)) {
             firstMeaningfulLine = trim(firstMeaningfulLine);
@@ -360,7 +368,7 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
             inEdgeSection = false;
             continue;
         }
-
+        // jak edge section to do explicit numbers
         if (inEdgeSection) {
             std::stringstream ss(line);
             int x;
@@ -369,7 +377,7 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
             }
             continue;
         }
-
+        // jak coord to do coords
         if (inCoordSection) {
             std::stringstream ss(line);
             NodeCoord node;
@@ -384,6 +392,7 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
         throw std::runtime_error("Nie udalo sie odczytac DIMENSION z pliku: " + path);
     }
 
+    // no i co sie dzieje w zaleznosci jaki edge weight type
     if (instance.edgeWeightType == "EXPLICIT") {
         if (edgeWeightFormat == "FULL_MATRIX") {
             instance.matrix = buildFullMatrixFromNumbers(instance.dimension, explicitNumbers);
@@ -397,7 +406,7 @@ TSPInstance FileReader::loadInstance(const std::string& path) {
     }
     else if (instance.edgeWeightType == "EUC_2D" || instance.edgeWeightType == "ATT") {
         if (static_cast<int>(coords.size()) != instance.dimension) {
-            throw std::runtime_error("Liczba punktow w NODE_COORD_SECTION nie zgadza sie z DIMENSION.");
+            throw std::runtime_error("Liczba punktow w NODE_COORD_SECTION nie zgadza sie z DIMENSION");
         }
 
         instance.matrix = buildMatrixFromCoords(coords, instance.edgeWeightType);

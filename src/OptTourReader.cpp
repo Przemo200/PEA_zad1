@@ -22,6 +22,7 @@ namespace {
     }
 }
 
+// otwiera plik i sprawdza
 std::vector<int> OptTourReader::loadTour(const std::string& path) {
     std::ifstream file(path);
     if (!file.is_open()) {
@@ -30,8 +31,9 @@ std::vector<int> OptTourReader::loadTour(const std::string& path) {
 
     std::vector<int> tour;
     std::string line;
-    bool inTourSection = false;
+    bool inTourSection = false; // igonruje wszystko dopoki nie w sekcji z trasa
 
+    // czyta linia po linii az dotrze do tour section, konczy gdy eof,
     while (std::getline(file, line)) {
         line = trim(line);
 
@@ -50,6 +52,7 @@ std::vector<int> OptTourReader::loadTour(const std::string& path) {
             break;
         }
 
+        // kazda z linii z tour scetion i liczby czytane do zmiennej city
         std::stringstream ss(line);
         int city = 0;
 
@@ -58,7 +61,7 @@ std::vector<int> OptTourReader::loadTour(const std::string& path) {
                 return tour;
             }
 
-            // TSPLIB ma numeracje od 1, w programie masz od 0
+            // TSPLIB ma numeracje od 1, w programie mam od 0
             tour.push_back(city - 1);
         }
     }

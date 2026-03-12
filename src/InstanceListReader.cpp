@@ -33,6 +33,7 @@ namespace {
     }
 }
 
+// otwiera i czyta liste, tworzy instance list entry i zwraca wektor wszystkihc wpisow
 std::vector<InstanceListEntry> InstanceListReader::loadList(const std::string& path) {
     std::ifstream file(path);
     if (!file.is_open()) {
@@ -66,7 +67,7 @@ std::vector<InstanceListEntry> InstanceListReader::loadList(const std::string& p
             entry.optCost = std::stoi(parts[3]);
         }
 
-        entries.push_back(entry);
+        entries.push_back(entry); // linia entry z parametrami oddzielonymi ; trafia do entries
     }
 
     return entries;

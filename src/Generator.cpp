@@ -4,9 +4,10 @@
 
 TSPInstance Generator::generateATSP(int n, int weightMin, int weightMax, unsigned int seed) {
     if (n <= 0) {
-        throw std::runtime_error("Niepoprawny rozmiar instancji ATSP.");
+        throw std::runtime_error("Niepoprawny rozmiar instancji ATSP");
     }
 
+    // generator losowy i takie samo P na wylosowanie wagi z zakresu min max
     std::mt19937 rng(seed);
     std::uniform_int_distribution<int> dist(weightMin, weightMax);
 
@@ -15,7 +16,7 @@ TSPInstance Generator::generateATSP(int n, int weightMin, int weightMax, unsigne
     instance.type = "ATSP";
     instance.edgeWeightType = "EXPLICIT";
     instance.dimension = n;
-    instance.matrix.assign(n, std::vector<int>(n, 0));
+    instance.matrix.assign(n, std::vector<int>(n, 0)); // macierz wypelniona zerami
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -32,7 +33,7 @@ TSPInstance Generator::generateATSP(int n, int weightMin, int weightMax, unsigne
 
 TSPInstance Generator::generateTSP(int n, int weightMin, int weightMax, unsigned int seed) {
     if (n <= 0) {
-        throw std::runtime_error("Niepoprawny rozmiar instancji TSP.");
+        throw std::runtime_error("Niepoprawny rozmiar instancji TSP");
     }
 
     std::mt19937 rng(seed);
@@ -43,7 +44,7 @@ TSPInstance Generator::generateTSP(int n, int weightMin, int weightMax, unsigned
     instance.type = "TSP";
     instance.edgeWeightType = "EXPLICIT";
     instance.dimension = n;
-    instance.matrix.assign(n, std::vector<int>(n, 0));
+    instance.matrix.assign(n, std::vector<int>(n, 0)); // macierz na start zera
 
     for (int i = 0; i < n; i++) {
         instance.matrix[i][i] = 0;
@@ -53,7 +54,7 @@ TSPInstance Generator::generateTSP(int n, int weightMin, int weightMax, unsigned
         for (int j = i + 1; j < n; j++) {
             int w = dist(rng);
             instance.matrix[i][j] = w;
-            instance.matrix[j][i] = w;
+            instance.matrix[j][i] = w; // jedna waga po obu stronach przekatnej - graf nieskierowany
         }
     }
 

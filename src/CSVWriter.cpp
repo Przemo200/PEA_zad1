@@ -7,7 +7,7 @@ void CSVWriter::writeHeaderIfNeeded(const std::string& path) {
     bool needHeader = true;
 
     if (std::filesystem::exists(path)) {
-        std::ifstream in(path);
+        std::ifstream in(path); // jesli istnieje i niepusty to nie trzeba headera
         if (in.good() && in.peek() != std::ifstream::traits_type::eof()) {
             needHeader = false;
         }
@@ -24,6 +24,7 @@ void CSVWriter::writeHeaderIfNeeded(const std::string& path) {
             throw std::runtime_error("Nie mozna otworzyc pliku CSV: " + path);
         }
 
+        // naglowek brute force
         out << "algorithm,instance_type,n,instance_id,best_cost,time_ms,checked_permutations\n";
     }
 }
@@ -37,6 +38,7 @@ void CSVWriter::appendBruteForceRow(
     double timeMs,
     long long checkedPermutations
 ) {
+    // tryb dopisywania i dopisuje jeden wiersz
     std::ofstream out(path, std::ios::app);
     if (!out.is_open()) {
         throw std::runtime_error("Nie mozna dopisac do pliku CSV: " + path);
@@ -51,6 +53,7 @@ void CSVWriter::appendBruteForceRow(
         << checkedPermutations << "\n";
 }
 
+// odpowiednik naglowka dla heurystyk
 void CSVWriter::writeHeuristicHeaderIfNeeded(const std::string& path) {
     bool needHeader = true;
 
@@ -76,6 +79,7 @@ void CSVWriter::writeHeuristicHeaderIfNeeded(const std::string& path) {
     }
 }
 
+// dodanie wiersza do csv heurystyk
 void CSVWriter::appendHeuristicRow(
     const std::string& path,
     const std::string& algorithm,
@@ -103,6 +107,7 @@ void CSVWriter::appendHeuristicRow(
         << startVertex << ","
         << bestCost << ",";
 
+    // jak opt znane to opt cost i error a jak nie to te pola puste
     if (hasOptCost) {
         out << optCost << "," << relativeErrorPercent;
     } else {
