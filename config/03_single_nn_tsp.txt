@@ -3,4 +3,4 @@ instance_file=data/tsp/att48.tsp
 opt_tour_file=data/opt/att48.opt.tour
 
 nn_start_vertex=0
-show_matrix=false
+show_matrix=true

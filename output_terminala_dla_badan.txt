@@ -1,0 +1,822 @@
+# najpierw zeby odpowiednia f
+
+ sudo cpupower -c 3 frequency-set -d 3700MHz
+ sudo cpupower -c 3 frequency-set -u 3700MHz
+ cpupower -c 3 frequency-info -p
+ cpupower -c 3 frequency-info -f
+
+# komendy uzyte do uruchomienia poszczegolnych testow
+
+taskset -c 3 ./build/pea_zad1 config/05_heuristics_tsp.txt
+taskset -c 3 ./build/pea_zad1 config/06_heuristics_atsp.txt
+taskset -c 3 ./run_rand_trials_study.sh
+taskset -c 3 ./build/pea_zad1 config/07_bf_tsp_6_12.txt
+taskset -c 3 ./build/pea_zad1 config/08_bf_atsp_6_12.txt
+taskset -c 3 ./build/pea_zad1 config/09_bf_tsp_13_15.txt
+taskset -c 3 ./build/pea_zad1 config/10_bf_atsp_13_15.txt
+
+
+# to co wyswietlal po kolei terminal:
+
+
+=== BENCHMARK HEURYSTYK ===
+Lista instancji: config/heuristics_tsp.txt
+Plik CSV: results/heuristics_tsp.csv
+RAND trials: 10000000
+RAND repeats: 5
+NN start: 0
+Progress: off
+
+Instancja: att48 | typ = TSP | n = 48
+Koszt optymalny / best known: 10628 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 30938 | czas [ms] = 47890.4 | pamiec [kB] = 4144 | opt = 10628 | blad [%] = 191.099
+  RAND rep 2 | koszt = 31561 | czas [ms] = 48036.2 | pamiec [kB] = 4144 | opt = 10628 | blad [%] = 196.961
+  RAND rep 3 | koszt = 31022 | czas [ms] = 49062 | pamiec [kB] = 4144 | opt = 10628 | blad [%] = 191.889
+  RAND rep 4 | koszt = 32117 | czas [ms] = 48420.8 | pamiec [kB] = 4144 | opt = 10628 | blad [%] = 202.192
+  RAND rep 5 | koszt = 30407 | czas [ms] = 48427.7 | pamiec [kB] = 4144 | opt = 10628 | blad [%] = 186.103
+  RAND srednio dla instancji | czas [ms] = 48367.4 | avg blad [%] = 193.649
+  NN | koszt = 12861 | czas [ms] = 0.068378 | pamiec [kB] = 4144 | opt = 10628 | blad [%] = 21.0105
+  RNN | koszt = 12012 | czas [ms] = 5.17859 | best start = 9 | pamiec [kB] = 4152 | opt = 10628 | blad [%] = 13.0222
+
+Instancja: ch130 | typ = TSP | n = 130
+Koszt optymalny / best known: 6110 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 37718 | czas [ms] = 131794 | pamiec [kB] = 4220 | opt = 6110 | blad [%] = 517.316
+  RAND rep 2 | koszt = 37148 | czas [ms] = 126853 | pamiec [kB] = 4220 | opt = 6110 | blad [%] = 507.987
+  RAND rep 3 | koszt = 37236 | czas [ms] = 127987 | pamiec [kB] = 4220 | opt = 6110 | blad [%] = 509.427
+  RAND rep 4 | koszt = 37326 | czas [ms] = 126317 | pamiec [kB] = 4220 | opt = 6110 | blad [%] = 510.9
+  RAND rep 5 | koszt = 37412 | czas [ms] = 125110 | pamiec [kB] = 4220 | opt = 6110 | blad [%] = 512.308
+  RAND srednio dla instancji | czas [ms] = 127612 | avg blad [%] = 511.588
+  NN | koszt = 7579 | czas [ms] = 0.480253 | pamiec [kB] = 4220 | opt = 6110 | blad [%] = 24.0426
+  RNN | koszt = 6871 | czas [ms] = 459.486 | best start = 54 | pamiec [kB] = 4236 | opt = 6110 | blad [%] = 12.455
+
+Instancja: bays29 | typ = TSP | n = 29
+Koszt optymalny / best known: 2020 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 3758 | czas [ms] = 31719.3 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 86.0396
+  RAND rep 2 | koszt = 3643 | czas [ms] = 30375.2 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 80.3465
+  RAND rep 3 | koszt = 3788 | czas [ms] = 30776 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 87.5248
+  RAND rep 4 | koszt = 3633 | czas [ms] = 31690.3 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 79.8515
+  RAND rep 5 | koszt = 3713 | czas [ms] = 31174 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 83.8119
+  RAND srednio dla instancji | czas [ms] = 31146.9 | avg blad [%] = 83.5149
+  NN | koszt = 2258 | czas [ms] = 0.041248 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 11.7822
+  RNN | koszt = 2134 | czas [ms] = 2.05243 | best start = 22 | pamiec [kB] = 4236 | opt = 2020 | blad [%] = 5.64356
+
+Instancja: berlin52 | typ = TSP | n = 52
+Koszt optymalny / best known: 7542 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 20809 | czas [ms] = 53114 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 175.908
+  RAND rep 2 | koszt = 20705 | czas [ms] = 54056.2 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 174.529
+  RAND rep 3 | koszt = 20924 | czas [ms] = 52593.8 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 177.433
+  RAND rep 4 | koszt = 20620 | czas [ms] = 52486.5 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 173.402
+  RAND rep 5 | koszt = 20652 | czas [ms] = 52487.1 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 173.827
+  RAND srednio dla instancji | czas [ms] = 52947.5 | avg blad [%] = 175.02
+  NN | koszt = 8980 | czas [ms] = 0.07925 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 19.0666
+  RNN | koszt = 8181 | czas [ms] = 5.09178 | best start = 39 | pamiec [kB] = 4236 | opt = 7542 | blad [%] = 8.47255
+
+Instancja: ch150 | typ = TSP | n = 150
+Koszt optymalny / best known: 6528 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 43908 | czas [ms] = 142013 | pamiec [kB] = 4268 | opt = 6528 | blad [%] = 572.61
+  RAND rep 2 | koszt = 43606 | czas [ms] = 142641 | pamiec [kB] = 4268 | opt = 6528 | blad [%] = 567.984
+  RAND rep 3 | koszt = 43316 | czas [ms] = 142400 | pamiec [kB] = 4268 | opt = 6528 | blad [%] = 563.542
+  RAND rep 4 | koszt = 44332 | czas [ms] = 148279 | pamiec [kB] = 4268 | opt = 6528 | blad [%] = 579.105
+  RAND rep 5 | koszt = 43530 | czas [ms] = 147626 | pamiec [kB] = 4268 | opt = 6528 | blad [%] = 566.82
+  RAND srednio dla instancji | czas [ms] = 144592 | avg blad [%] = 570.012
+  NN | koszt = 8191 | czas [ms] = 0.640345 | pamiec [kB] = 4268 | opt = 6528 | blad [%] = 25.4749
+  RNN | koszt = 7075 | czas [ms] = 249.88 | best start = 70 | pamiec [kB] = 4272 | opt = 6528 | blad [%] = 8.37929
+
+Instancja: eil51 | typ = TSP | n = 51
+Koszt optymalny / best known: 426 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 1175 | czas [ms] = 50895.4 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 175.822
+  RAND rep 2 | koszt = 1190 | czas [ms] = 51583.4 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 179.343
+  RAND rep 3 | koszt = 1183 | czas [ms] = 53992 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 177.7
+  RAND rep 4 | koszt = 1176 | czas [ms] = 52044.1 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 176.056
+  RAND rep 5 | koszt = 1131 | czas [ms] = 52468.3 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 165.493
+  RAND srednio dla instancji | czas [ms] = 52196.7 | avg blad [%] = 174.883
+  NN | koszt = 511 | czas [ms] = 0.076284 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 19.9531
+  RNN | koszt = 465 | czas [ms] = 2490.48 | best start = 6 | pamiec [kB] = 4272 | opt = 426 | blad [%] = 9.15493
+
+Instancja: eil76 | typ = TSP | n = 76
+Koszt optymalny / best known: 538 (zrodlo: .opt.tour)
+  RAND rep 1 | koszt = 1926 | czas [ms] = 74793.7 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 257.993
+  RAND rep 2 | koszt = 1922 | czas [ms] = 75470.2 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 257.249
+  RAND rep 3 | koszt = 1879 | czas [ms] = 74366.4 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 249.257
+  RAND rep 4 | koszt = 1900 | czas [ms] = 76810.9 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 253.16
+  RAND rep 5 | koszt = 1919 | czas [ms] = 76234.5 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 256.691
+  RAND srednio dla instancji | czas [ms] = 75535.1 | avg blad [%] = 254.87
+  NN | koszt = 642 | czas [ms] = 0.281281 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 19.3309
+  RNN | koszt = 565 | czas [ms] = 14795 | best start = 22 | pamiec [kB] = 4272 | opt = 538 | blad [%] = 5.01859
+
+=== PODSUMOWANIE WG ROZMIARU ===
+n = 29 | RAND avg czas [ms] = 31146.9 | RAND avg blad [%] = 83.5149 | NN avg czas [ms] = 0.041248 | NN avg blad [%] = 11.7822 | RNN avg czas [ms] = 2.05243 | RNN avg blad [%] = 5.64356
+n = 48 | RAND avg czas [ms] = 48367.4 | RAND avg blad [%] = 193.649 | NN avg czas [ms] = 0.068378 | NN avg blad [%] = 21.0105 | RNN avg czas [ms] = 5.17859 | RNN avg blad [%] = 13.0222
+n = 51 | RAND avg czas [ms] = 52196.7 | RAND avg blad [%] = 174.883 | NN avg czas [ms] = 0.076284 | NN avg blad [%] = 19.9531 | RNN avg czas [ms] = 2490.48 | RNN avg blad [%] = 9.15493
+n = 52 | RAND avg czas [ms] = 52947.5 | RAND avg blad [%] = 175.02 | NN avg czas [ms] = 0.07925 | NN avg blad [%] = 19.0666 | RNN avg czas [ms] = 5.09178 | RNN avg blad [%] = 8.47255
+n = 76 | RAND avg czas [ms] = 75535.1 | RAND avg blad [%] = 254.87 | NN avg czas [ms] = 0.281281 | NN avg blad [%] = 19.3309 | RNN avg czas [ms] = 14795 | RNN avg blad [%] = 5.01859
+n = 130 | RAND avg czas [ms] = 127612 | RAND avg blad [%] = 511.588 | NN avg czas [ms] = 0.480253 | NN avg blad [%] = 24.0426 | RNN avg czas [ms] = 459.486 | RNN avg blad [%] = 12.455
+n = 150 | RAND avg czas [ms] = 144592 | RAND avg blad [%] = 570.012 | NN avg czas [ms] = 0.640345 | NN avg blad [%] = 25.4749 | RNN avg czas [ms] = 249.88 | RNN avg blad [%] = 8.37929
+Benchmark heurystyk zakonczony.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+=== BENCHMARK HEURYSTYK ===
+Lista instancji: config/heuristics_atsp.txt
+Plik CSV: results/heuristics_atsp.csv
+RAND trials: 10000000
+RAND repeats: 5
+NN start: 0
+Progress: off
+
+Instancja: br17 | typ = ATSP | n = 17
+Koszt optymalny / best known: 39 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 42 | czas [ms] = 18385.4 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 7.69231
+  RAND rep 2 | koszt = 42 | czas [ms] = 18258.7 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 7.69231
+  RAND rep 3 | koszt = 39 | czas [ms] = 18244.3 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 0
+  RAND rep 4 | koszt = 41 | czas [ms] = 18232.5 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 5.12821
+  RAND rep 5 | koszt = 42 | czas [ms] = 18227.1 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 7.69231
+  RAND srednio dla instancji | czas [ms] = 18269.6 | avg blad [%] = 5.64103
+  NN | koszt = 92 | czas [ms] = 0.010309 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 135.897
+  RNN | koszt = 39 | czas [ms] = 1568.78 | best start = 3 | pamiec [kB] = 4208 | opt = 39 | blad [%] = 0
+
+Instancja: ft53 | typ = ATSP | n = 53
+Koszt optymalny / best known: 6905 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 19138 | czas [ms] = 53238.7 | pamiec [kB] = 4240 | opt = 6905 | blad [%] = 177.161
+  RAND rep 2 | koszt = 19237 | czas [ms] = 54843.7 | pamiec [kB] = 4240 | opt = 6905 | blad [%] = 178.595
+  RAND rep 3 | koszt = 18997 | czas [ms] = 54395.4 | pamiec [kB] = 4240 | opt = 6905 | blad [%] = 175.119
+  RAND rep 4 | koszt = 19305 | czas [ms] = 54011.6 | pamiec [kB] = 4240 | opt = 6905 | blad [%] = 179.58
+  RAND rep 5 | koszt = 18928 | czas [ms] = 52292.5 | pamiec [kB] = 4240 | opt = 6905 | blad [%] = 174.12
+  RAND srednio dla instancji | czas [ms] = 53756.4 | avg blad [%] = 176.915
+  NN | koszt = 9514 | czas [ms] = 0.083237 | pamiec [kB] = 4240 | opt = 6905 | blad [%] = 37.7842
+  RNN | koszt = 8584 | czas [ms] = 5.82123 | best start = 19 | pamiec [kB] = 4244 | opt = 6905 | blad [%] = 24.3157
+
+Instancja: ftv47 | typ = ATSP | n = 48
+Koszt optymalny / best known: 1776 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 4805 | czas [ms] = 47785.1 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 170.552
+  RAND rep 2 | koszt = 4842 | czas [ms] = 48923.2 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 172.635
+  RAND rep 3 | koszt = 4925 | czas [ms] = 51204.8 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 177.309
+  RAND rep 4 | koszt = 4811 | czas [ms] = 48965.3 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 170.89
+  RAND rep 5 | koszt = 4793 | czas [ms] = 48414.2 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 169.876
+  RAND srednio dla instancji | czas [ms] = 49058.5 | avg blad [%] = 172.252
+  NN | koszt = 2374 | czas [ms] = 0.097394 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 33.6712
+  RNN | koszt = 2173 | czas [ms] = 6.72716 | best start = 13 | pamiec [kB] = 4244 | opt = 1776 | blad [%] = 22.3536
+
+Instancja: ftv33 | typ = ATSP | n = 34
+Koszt optymalny / best known: 1286 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 2939 | czas [ms] = 34750.8 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 128.538
+  RAND rep 2 | koszt = 2938 | czas [ms] = 35293.6 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 128.46
+  RAND rep 3 | koszt = 2928 | czas [ms] = 35144.4 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 127.683
+  RAND rep 4 | koszt = 2937 | czas [ms] = 35505.1 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 128.383
+  RAND rep 5 | koszt = 2880 | czas [ms] = 35839.1 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 123.95
+  RAND srednio dla instancji | czas [ms] = 35306.6 | avg blad [%] = 127.403
+  NN | koszt = 1683 | czas [ms] = 0.034425 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 30.8709
+  RNN | koszt = 1590 | czas [ms] = 1.59011 | best start = 4 | pamiec [kB] = 4244 | opt = 1286 | blad [%] = 23.6392
+
+Instancja: ftv35 | typ = ATSP | n = 36
+Koszt optymalny / best known: 1473 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 3063 | czas [ms] = 37998.1 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 107.943
+  RAND rep 2 | koszt = 3245 | czas [ms] = 37614.8 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 120.299
+  RAND rep 3 | koszt = 3302 | czas [ms] = 37469.3 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 124.168
+  RAND rep 4 | koszt = 3297 | czas [ms] = 37858.1 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 123.829
+  RAND rep 5 | koszt = 3231 | czas [ms] = 37506.9 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 119.348
+  RAND srednio dla instancji | czas [ms] = 37689.4 | avg blad [%] = 119.117
+  NN | koszt = 1791 | czas [ms] = 0.040617 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 21.5886
+  RNN | koszt = 1667 | czas [ms] = 2.07266 | best start = 10 | pamiec [kB] = 4244 | opt = 1473 | blad [%] = 13.1704
+
+Instancja: ftv38 | typ = ATSP | n = 39
+Koszt optymalny / best known: 1530 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 3451 | czas [ms] = 40090.7 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 125.556
+  RAND rep 2 | koszt = 3550 | czas [ms] = 39901.7 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 132.026
+  RAND rep 3 | koszt = 3545 | czas [ms] = 40222.3 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 131.699
+  RAND rep 4 | koszt = 3604 | czas [ms] = 40395.5 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 135.556
+  RAND rep 5 | koszt = 3431 | czas [ms] = 40384.8 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 124.248
+  RAND srednio dla instancji | czas [ms] = 40199 | avg blad [%] = 129.817
+  NN | koszt = 1778 | czas [ms] = 0.050205 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 16.2092
+  RNN | koszt = 1759 | czas [ms] = 3.46855 | best start = 16 | pamiec [kB] = 4244 | opt = 1530 | blad [%] = 14.9673
+
+Instancja: ftv64 | typ = ATSP | n = 65
+Koszt optymalny / best known: 1839 (zrodlo: lista instancji)
+  RAND rep 1 | koszt = 6519 | czas [ms] = 65641.4 | pamiec [kB] = 4276 | opt = 1839 | blad [%] = 254.486
+  RAND rep 2 | koszt = 6663 | czas [ms] = 66275.3 | pamiec [kB] = 4276 | opt = 1839 | blad [%] = 262.316
+  RAND rep 3 | koszt = 6563 | czas [ms] = 66237.6 | pamiec [kB] = 4276 | opt = 1839 | blad [%] = 256.879
+  RAND rep 4 | koszt = 6688 | czas [ms] = 66644.1 | pamiec [kB] = 4276 | opt = 1839 | blad [%] = 263.676
+  RAND rep 5 | koszt = 6617 | czas [ms] = 67048.6 | pamiec [kB] = 4276 | opt = 1839 | blad [%] = 259.815
+  RAND srednio dla instancji | czas [ms] = 66369.4 | avg blad [%] = 259.434
+  NN | koszt = 2639 | czas [ms] = 0.121749 | pamiec [kB] = 4276 | opt = 1839 | blad [%] = 43.5019
+  RNN | koszt = 2202 | czas [ms] = 12.85 | best start = 30 | pamiec [kB] = 4280 | opt = 1839 | blad [%] = 19.739
+
+=== PODSUMOWANIE WG ROZMIARU ===
+n = 17 | RAND avg czas [ms] = 18269.6 | RAND avg blad [%] = 5.64103 | NN avg czas [ms] = 0.010309 | NN avg blad [%] = 135.897 | RNN avg czas [ms] = 1568.78 | RNN avg blad [%] = 0
+n = 34 | RAND avg czas [ms] = 35306.6 | RAND avg blad [%] = 127.403 | NN avg czas [ms] = 0.034425 | NN avg blad [%] = 30.8709 | RNN avg czas [ms] = 1.59011 | RNN avg blad [%] = 23.6392
+n = 36 | RAND avg czas [ms] = 37689.4 | RAND avg blad [%] = 119.117 | NN avg czas [ms] = 0.040617 | NN avg blad [%] = 21.5886 | RNN avg czas [ms] = 2.07266 | RNN avg blad [%] = 13.1704
+n = 39 | RAND avg czas [ms] = 40199 | RAND avg blad [%] = 129.817 | NN avg czas [ms] = 0.050205 | NN avg blad [%] = 16.2092 | RNN avg czas [ms] = 3.46855 | RNN avg blad [%] = 14.9673
+n = 48 | RAND avg czas [ms] = 49058.5 | RAND avg blad [%] = 172.252 | NN avg czas [ms] = 0.097394 | NN avg blad [%] = 33.6712 | RNN avg czas [ms] = 6.72716 | RNN avg blad [%] = 22.3536
+n = 53 | RAND avg czas [ms] = 53756.4 | RAND avg blad [%] = 176.915 | NN avg czas [ms] = 0.083237 | NN avg blad [%] = 37.7842 | RNN avg czas [ms] = 5.82123 | RNN avg blad [%] = 24.3157
+n = 65 | RAND avg czas [ms] = 66369.4 | RAND avg blad [%] = 259.434 | NN avg czas [ms] = 0.121749 | NN avg blad [%] = 43.5019 | RNN avg czas [ms] = 12.85 | RNN avg blad [%] = 19.739
+Benchmark heurystyk zakonczony.
+-----------------------------------------------------------------------------
+
+[OK] TSP | att48 | trials=100 | rep=1
+[OK] TSP | att48 | trials=100 | rep=2
+[OK] TSP | att48 | trials=100 | rep=3
+[OK] TSP | att48 | trials=100 | rep=4
+[OK] TSP | att48 | trials=100 | rep=5
+[OK] TSP | att48 | trials=1000 | rep=1
+[OK] TSP | att48 | trials=1000 | rep=2
+[OK] TSP | att48 | trials=1000 | rep=3
+[OK] TSP | att48 | trials=1000 | rep=4
+[OK] TSP | att48 | trials=1000 | rep=5
+[OK] TSP | att48 | trials=10000 | rep=1
+[OK] TSP | att48 | trials=10000 | rep=2
+[OK] TSP | att48 | trials=10000 | rep=3
+[OK] TSP | att48 | trials=10000 | rep=4
+[OK] TSP | att48 | trials=10000 | rep=5
+[OK] TSP | att48 | trials=100000 | rep=1
+[OK] TSP | att48 | trials=100000 | rep=2
+[OK] TSP | att48 | trials=100000 | rep=3
+[OK] TSP | att48 | trials=100000 | rep=4
+[OK] TSP | att48 | trials=100000 | rep=5
+[OK] TSP | att48 | trials=1000000 | rep=1
+[OK] TSP | att48 | trials=1000000 | rep=2
+[OK] TSP | att48 | trials=1000000 | rep=3
+[OK] TSP | att48 | trials=1000000 | rep=4
+[OK] TSP | att48 | trials=1000000 | rep=5
+[OK] TSP | att48 | trials=10000000 | rep=1
+[OK] TSP | att48 | trials=10000000 | rep=2
+[OK] TSP | att48 | trials=10000000 | rep=3
+[OK] TSP | att48 | trials=10000000 | rep=4
+[OK] TSP | att48 | trials=10000000 | rep=5
+[OK] TSP | ch130 | trials=100 | rep=1
+[OK] TSP | ch130 | trials=100 | rep=2
+[OK] TSP | ch130 | trials=100 | rep=3
+[OK] TSP | ch130 | trials=100 | rep=4
+[OK] TSP | ch130 | trials=100 | rep=5
+[OK] TSP | ch130 | trials=1000 | rep=1
+[OK] TSP | ch130 | trials=1000 | rep=2
+[OK] TSP | ch130 | trials=1000 | rep=3
+[OK] TSP | ch130 | trials=1000 | rep=4
+[OK] TSP | ch130 | trials=1000 | rep=5
+[OK] TSP | ch130 | trials=10000 | rep=1
+[OK] TSP | ch130 | trials=10000 | rep=2
+[OK] TSP | ch130 | trials=10000 | rep=3
+[OK] TSP | ch130 | trials=10000 | rep=4
+[OK] TSP | ch130 | trials=10000 | rep=5
+[OK] TSP | ch130 | trials=100000 | rep=1
+[OK] TSP | ch130 | trials=100000 | rep=2
+[OK] TSP | ch130 | trials=100000 | rep=3
+[OK] TSP | ch130 | trials=100000 | rep=4
+[OK] TSP | ch130 | trials=100000 | rep=5
+[OK] TSP | ch130 | trials=1000000 | rep=1
+[OK] TSP | ch130 | trials=1000000 | rep=2
+[OK] TSP | ch130 | trials=1000000 | rep=3
+[OK] TSP | ch130 | trials=1000000 | rep=4
+[OK] TSP | ch130 | trials=1000000 | rep=5
+[OK] TSP | ch130 | trials=10000000 | rep=1
+[OK] TSP | ch130 | trials=10000000 | rep=2
+[OK] TSP | ch130 | trials=10000000 | rep=3
+[OK] TSP | ch130 | trials=10000000 | rep=4
+[OK] TSP | ch130 | trials=10000000 | rep=5
+[OK] TSP | bays29 | trials=100 | rep=1
+[OK] TSP | bays29 | trials=100 | rep=2
+[OK] TSP | bays29 | trials=100 | rep=3
+[OK] TSP | bays29 | trials=100 | rep=4
+[OK] TSP | bays29 | trials=100 | rep=5
+[OK] TSP | bays29 | trials=1000 | rep=1
+[OK] TSP | bays29 | trials=1000 | rep=2
+[OK] TSP | bays29 | trials=1000 | rep=3
+[OK] TSP | bays29 | trials=1000 | rep=4
+[OK] TSP | bays29 | trials=1000 | rep=5
+[OK] TSP | bays29 | trials=10000 | rep=1
+[OK] TSP | bays29 | trials=10000 | rep=2
+[OK] TSP | bays29 | trials=10000 | rep=3
+[OK] TSP | bays29 | trials=10000 | rep=4
+[OK] TSP | bays29 | trials=10000 | rep=5
+[OK] TSP | bays29 | trials=100000 | rep=1
+[OK] TSP | bays29 | trials=100000 | rep=2
+[OK] TSP | bays29 | trials=100000 | rep=3
+[OK] TSP | bays29 | trials=100000 | rep=4
+[OK] TSP | bays29 | trials=100000 | rep=5
+[OK] TSP | bays29 | trials=1000000 | rep=1
+[OK] TSP | bays29 | trials=1000000 | rep=2
+[OK] TSP | bays29 | trials=1000000 | rep=3
+[OK] TSP | bays29 | trials=1000000 | rep=4
+[OK] TSP | bays29 | trials=1000000 | rep=5
+[OK] TSP | bays29 | trials=10000000 | rep=1
+[OK] TSP | bays29 | trials=10000000 | rep=2
+[OK] TSP | bays29 | trials=10000000 | rep=3
+[OK] TSP | bays29 | trials=10000000 | rep=4
+[OK] TSP | bays29 | trials=10000000 | rep=5
+[OK] TSP | berlin52 | trials=100 | rep=1
+[OK] TSP | berlin52 | trials=100 | rep=2
+[OK] TSP | berlin52 | trials=100 | rep=3
+[OK] TSP | berlin52 | trials=100 | rep=4
+[OK] TSP | berlin52 | trials=100 | rep=5
+[OK] TSP | berlin52 | trials=1000 | rep=1
+[OK] TSP | berlin52 | trials=1000 | rep=2
+[OK] TSP | berlin52 | trials=1000 | rep=3
+[OK] TSP | berlin52 | trials=1000 | rep=4
+[OK] TSP | berlin52 | trials=1000 | rep=5
+[OK] TSP | berlin52 | trials=10000 | rep=1
+[OK] TSP | berlin52 | trials=10000 | rep=2
+[OK] TSP | berlin52 | trials=10000 | rep=3
+[OK] TSP | berlin52 | trials=10000 | rep=4
+[OK] TSP | berlin52 | trials=10000 | rep=5
+[OK] TSP | berlin52 | trials=100000 | rep=1
+[OK] TSP | berlin52 | trials=100000 | rep=2
+[OK] TSP | berlin52 | trials=100000 | rep=3
+[OK] TSP | berlin52 | trials=100000 | rep=4
+[OK] TSP | berlin52 | trials=100000 | rep=5
+[OK] TSP | berlin52 | trials=1000000 | rep=1
+[OK] TSP | berlin52 | trials=1000000 | rep=2
+[OK] TSP | berlin52 | trials=1000000 | rep=3
+[OK] TSP | berlin52 | trials=1000000 | rep=4
+[OK] TSP | berlin52 | trials=1000000 | rep=5
+[OK] TSP | berlin52 | trials=10000000 | rep=1
+[OK] TSP | berlin52 | trials=10000000 | rep=2
+[OK] TSP | berlin52 | trials=10000000 | rep=3
+[OK] TSP | berlin52 | trials=10000000 | rep=4
+[OK] TSP | berlin52 | trials=10000000 | rep=5
+[OK] TSP | ch150 | trials=100 | rep=1
+[OK] TSP | ch150 | trials=100 | rep=2
+[OK] TSP | ch150 | trials=100 | rep=3
+[OK] TSP | ch150 | trials=100 | rep=4
+[OK] TSP | ch150 | trials=100 | rep=5
+[OK] TSP | ch150 | trials=1000 | rep=1
+[OK] TSP | ch150 | trials=1000 | rep=2
+[OK] TSP | ch150 | trials=1000 | rep=3
+[OK] TSP | ch150 | trials=1000 | rep=4
+[OK] TSP | ch150 | trials=1000 | rep=5
+[OK] TSP | ch150 | trials=10000 | rep=1
+[OK] TSP | ch150 | trials=10000 | rep=2
+[OK] TSP | ch150 | trials=10000 | rep=3
+[OK] TSP | ch150 | trials=10000 | rep=4
+[OK] TSP | ch150 | trials=10000 | rep=5
+[OK] TSP | ch150 | trials=100000 | rep=1
+[OK] TSP | ch150 | trials=100000 | rep=2
+[OK] TSP | ch150 | trials=100000 | rep=3
+[OK] TSP | ch150 | trials=100000 | rep=4
+[OK] TSP | ch150 | trials=100000 | rep=5
+[OK] TSP | ch150 | trials=1000000 | rep=1
+[OK] TSP | ch150 | trials=1000000 | rep=2
+[OK] TSP | ch150 | trials=1000000 | rep=3
+[OK] TSP | ch150 | trials=1000000 | rep=4
+[OK] TSP | ch150 | trials=1000000 | rep=5
+[OK] TSP | ch150 | trials=10000000 | rep=1
+[OK] TSP | ch150 | trials=10000000 | rep=2
+[OK] TSP | ch150 | trials=10000000 | rep=3
+[OK] TSP | ch150 | trials=10000000 | rep=4
+[OK] TSP | ch150 | trials=10000000 | rep=5
+[OK] TSP | eil51 | trials=100 | rep=1
+[OK] TSP | eil51 | trials=100 | rep=2
+[OK] TSP | eil51 | trials=100 | rep=3
+[OK] TSP | eil51 | trials=100 | rep=4
+[OK] TSP | eil51 | trials=100 | rep=5
+[OK] TSP | eil51 | trials=1000 | rep=1
+[OK] TSP | eil51 | trials=1000 | rep=2
+[OK] TSP | eil51 | trials=1000 | rep=3
+[OK] TSP | eil51 | trials=1000 | rep=4
+[OK] TSP | eil51 | trials=1000 | rep=5
+[OK] TSP | eil51 | trials=10000 | rep=1
+[OK] TSP | eil51 | trials=10000 | rep=2
+[OK] TSP | eil51 | trials=10000 | rep=3
+[OK] TSP | eil51 | trials=10000 | rep=4
+[OK] TSP | eil51 | trials=10000 | rep=5
+[OK] TSP | eil51 | trials=100000 | rep=1
+[OK] TSP | eil51 | trials=100000 | rep=2
+[OK] TSP | eil51 | trials=100000 | rep=3
+[OK] TSP | eil51 | trials=100000 | rep=4
+[OK] TSP | eil51 | trials=100000 | rep=5
+[OK] TSP | eil51 | trials=1000000 | rep=1
+[OK] TSP | eil51 | trials=1000000 | rep=2
+[OK] TSP | eil51 | trials=1000000 | rep=3
+[OK] TSP | eil51 | trials=1000000 | rep=4
+[OK] TSP | eil51 | trials=1000000 | rep=5
+[OK] TSP | eil51 | trials=10000000 | rep=1
+[OK] TSP | eil51 | trials=10000000 | rep=2
+[OK] TSP | eil51 | trials=10000000 | rep=3
+[OK] TSP | eil51 | trials=10000000 | rep=4
+[OK] TSP | eil51 | trials=10000000 | rep=5
+[OK] ATSP | br17 | trials=100 | rep=1
+[OK] ATSP | br17 | trials=100 | rep=2
+[OK] ATSP | br17 | trials=100 | rep=3
+[OK] ATSP | br17 | trials=100 | rep=4
+[OK] ATSP | br17 | trials=100 | rep=5
+[OK] ATSP | br17 | trials=1000 | rep=1
+[OK] ATSP | br17 | trials=1000 | rep=2
+[OK] ATSP | br17 | trials=1000 | rep=3
+[OK] ATSP | br17 | trials=1000 | rep=4
+[OK] ATSP | br17 | trials=1000 | rep=5
+[OK] ATSP | br17 | trials=10000 | rep=1
+[OK] ATSP | br17 | trials=10000 | rep=2
+[OK] ATSP | br17 | trials=10000 | rep=3
+[OK] ATSP | br17 | trials=10000 | rep=4
+[OK] ATSP | br17 | trials=10000 | rep=5
+[OK] ATSP | br17 | trials=100000 | rep=1
+[OK] ATSP | br17 | trials=100000 | rep=2
+[OK] ATSP | br17 | trials=100000 | rep=3
+[OK] ATSP | br17 | trials=100000 | rep=4
+[OK] ATSP | br17 | trials=100000 | rep=5
+[OK] ATSP | br17 | trials=1000000 | rep=1
+[OK] ATSP | br17 | trials=1000000 | rep=2
+[OK] ATSP | br17 | trials=1000000 | rep=3
+[OK] ATSP | br17 | trials=1000000 | rep=4
+[OK] ATSP | br17 | trials=1000000 | rep=5
+[OK] ATSP | br17 | trials=10000000 | rep=1
+[OK] ATSP | br17 | trials=10000000 | rep=2
+[OK] ATSP | br17 | trials=10000000 | rep=3
+[OK] ATSP | br17 | trials=10000000 | rep=4
+[OK] ATSP | br17 | trials=10000000 | rep=5
+[OK] ATSP | ft53 | trials=100 | rep=1
+[OK] ATSP | ft53 | trials=100 | rep=2
+[OK] ATSP | ft53 | trials=100 | rep=3
+[OK] ATSP | ft53 | trials=100 | rep=4
+[OK] ATSP | ft53 | trials=100 | rep=5
+[OK] ATSP | ft53 | trials=1000 | rep=1
+[OK] ATSP | ft53 | trials=1000 | rep=2
+[OK] ATSP | ft53 | trials=1000 | rep=3
+[OK] ATSP | ft53 | trials=1000 | rep=4
+[OK] ATSP | ft53 | trials=1000 | rep=5
+[OK] ATSP | ft53 | trials=10000 | rep=1
+[OK] ATSP | ft53 | trials=10000 | rep=2
+[OK] ATSP | ft53 | trials=10000 | rep=3
+[OK] ATSP | ft53 | trials=10000 | rep=4
+[OK] ATSP | ft53 | trials=10000 | rep=5
+[OK] ATSP | ft53 | trials=100000 | rep=1
+[OK] ATSP | ft53 | trials=100000 | rep=2
+[OK] ATSP | ft53 | trials=100000 | rep=3
+[OK] ATSP | ft53 | trials=100000 | rep=4
+[OK] ATSP | ft53 | trials=100000 | rep=5
+[OK] ATSP | ft53 | trials=1000000 | rep=1
+[OK] ATSP | ft53 | trials=1000000 | rep=2
+[OK] ATSP | ft53 | trials=1000000 | rep=3
+[OK] ATSP | ft53 | trials=1000000 | rep=4
+[OK] ATSP | ft53 | trials=1000000 | rep=5
+[OK] ATSP | ft53 | trials=10000000 | rep=1
+[OK] ATSP | ft53 | trials=10000000 | rep=2
+[OK] ATSP | ft53 | trials=10000000 | rep=3
+[OK] ATSP | ft53 | trials=10000000 | rep=4
+[OK] ATSP | ft53 | trials=10000000 | rep=5
+[OK] ATSP | ftv47 | trials=100 | rep=1
+[OK] ATSP | ftv47 | trials=100 | rep=2
+[OK] ATSP | ftv47 | trials=100 | rep=3
+[OK] ATSP | ftv47 | trials=100 | rep=4
+[OK] ATSP | ftv47 | trials=100 | rep=5
+[OK] ATSP | ftv47 | trials=1000 | rep=1
+[OK] ATSP | ftv47 | trials=1000 | rep=2
+[OK] ATSP | ftv47 | trials=1000 | rep=3
+[OK] ATSP | ftv47 | trials=1000 | rep=4
+[OK] ATSP | ftv47 | trials=1000 | rep=5
+[OK] ATSP | ftv47 | trials=10000 | rep=1
+[OK] ATSP | ftv47 | trials=10000 | rep=2
+[OK] ATSP | ftv47 | trials=10000 | rep=3
+[OK] ATSP | ftv47 | trials=10000 | rep=4
+[OK] ATSP | ftv47 | trials=10000 | rep=5
+[OK] ATSP | ftv47 | trials=100000 | rep=1
+[OK] ATSP | ftv47 | trials=100000 | rep=2
+[OK] ATSP | ftv47 | trials=100000 | rep=3
+[OK] ATSP | ftv47 | trials=100000 | rep=4
+[OK] ATSP | ftv47 | trials=100000 | rep=5
+[OK] ATSP | ftv47 | trials=1000000 | rep=1
+[OK] ATSP | ftv47 | trials=1000000 | rep=2
+[OK] ATSP | ftv47 | trials=1000000 | rep=3
+[OK] ATSP | ftv47 | trials=1000000 | rep=4
+[OK] ATSP | ftv47 | trials=1000000 | rep=5
+[OK] ATSP | ftv47 | trials=10000000 | rep=1
+[OK] ATSP | ftv47 | trials=10000000 | rep=2
+[OK] ATSP | ftv47 | trials=10000000 | rep=3
+[OK] ATSP | ftv47 | trials=10000000 | rep=4
+[OK] ATSP | ftv47 | trials=10000000 | rep=5
+[OK] ATSP | ftv33 | trials=100 | rep=1
+[OK] ATSP | ftv33 | trials=100 | rep=2
+[OK] ATSP | ftv33 | trials=100 | rep=3
+[OK] ATSP | ftv33 | trials=100 | rep=4
+[OK] ATSP | ftv33 | trials=100 | rep=5
+[OK] ATSP | ftv33 | trials=1000 | rep=1
+[OK] ATSP | ftv33 | trials=1000 | rep=2
+[OK] ATSP | ftv33 | trials=1000 | rep=3
+[OK] ATSP | ftv33 | trials=1000 | rep=4
+[OK] ATSP | ftv33 | trials=1000 | rep=5
+[OK] ATSP | ftv33 | trials=10000 | rep=1
+[OK] ATSP | ftv33 | trials=10000 | rep=2
+[OK] ATSP | ftv33 | trials=10000 | rep=3
+[OK] ATSP | ftv33 | trials=10000 | rep=4
+[OK] ATSP | ftv33 | trials=10000 | rep=5
+[OK] ATSP | ftv33 | trials=100000 | rep=1
+[OK] ATSP | ftv33 | trials=100000 | rep=2
+[OK] ATSP | ftv33 | trials=100000 | rep=3
+[OK] ATSP | ftv33 | trials=100000 | rep=4
+[OK] ATSP | ftv33 | trials=100000 | rep=5
+[OK] ATSP | ftv33 | trials=1000000 | rep=1
+[OK] ATSP | ftv33 | trials=1000000 | rep=2
+[OK] ATSP | ftv33 | trials=1000000 | rep=3
+[OK] ATSP | ftv33 | trials=1000000 | rep=4
+[OK] ATSP | ftv33 | trials=1000000 | rep=5
+[OK] ATSP | ftv33 | trials=10000000 | rep=1
+[OK] ATSP | ftv33 | trials=10000000 | rep=2
+[OK] ATSP | ftv33 | trials=10000000 | rep=3
+[OK] ATSP | ftv33 | trials=10000000 | rep=4
+[OK] ATSP | ftv33 | trials=10000000 | rep=5
+[OK] ATSP | ftv35 | trials=100 | rep=1
+[OK] ATSP | ftv35 | trials=100 | rep=2
+[OK] ATSP | ftv35 | trials=100 | rep=3
+[OK] ATSP | ftv35 | trials=100 | rep=4
+[OK] ATSP | ftv35 | trials=100 | rep=5
+[OK] ATSP | ftv35 | trials=1000 | rep=1
+[OK] ATSP | ftv35 | trials=1000 | rep=2
+[OK] ATSP | ftv35 | trials=1000 | rep=3
+[OK] ATSP | ftv35 | trials=1000 | rep=4
+[OK] ATSP | ftv35 | trials=1000 | rep=5
+[OK] ATSP | ftv35 | trials=10000 | rep=1
+[OK] ATSP | ftv35 | trials=10000 | rep=2
+[OK] ATSP | ftv35 | trials=10000 | rep=3
+[OK] ATSP | ftv35 | trials=10000 | rep=4
+[OK] ATSP | ftv35 | trials=10000 | rep=5
+[OK] ATSP | ftv35 | trials=100000 | rep=1
+[OK] ATSP | ftv35 | trials=100000 | rep=2
+[OK] ATSP | ftv35 | trials=100000 | rep=3
+[OK] ATSP | ftv35 | trials=100000 | rep=4
+[OK] ATSP | ftv35 | trials=100000 | rep=5
+[OK] ATSP | ftv35 | trials=1000000 | rep=1
+[OK] ATSP | ftv35 | trials=1000000 | rep=2
+[OK] ATSP | ftv35 | trials=1000000 | rep=3
+[OK] ATSP | ftv35 | trials=1000000 | rep=4
+[OK] ATSP | ftv35 | trials=1000000 | rep=5
+[OK] ATSP | ftv35 | trials=10000000 | rep=1
+[OK] ATSP | ftv35 | trials=10000000 | rep=2
+[OK] ATSP | ftv35 | trials=10000000 | rep=3
+[OK] ATSP | ftv35 | trials=10000000 | rep=4
+[OK] ATSP | ftv35 | trials=10000000 | rep=5
+[OK] ATSP | ftv38 | trials=100 | rep=1
+[OK] ATSP | ftv38 | trials=100 | rep=2
+[OK] ATSP | ftv38 | trials=100 | rep=3
+[OK] ATSP | ftv38 | trials=100 | rep=4
+[OK] ATSP | ftv38 | trials=100 | rep=5
+[OK] ATSP | ftv38 | trials=1000 | rep=1
+[OK] ATSP | ftv38 | trials=1000 | rep=2
+[OK] ATSP | ftv38 | trials=1000 | rep=3
+[OK] ATSP | ftv38 | trials=1000 | rep=4
+[OK] ATSP | ftv38 | trials=1000 | rep=5
+[OK] ATSP | ftv38 | trials=10000 | rep=1
+[OK] ATSP | ftv38 | trials=10000 | rep=2
+[OK] ATSP | ftv38 | trials=10000 | rep=3
+[OK] ATSP | ftv38 | trials=10000 | rep=4
+[OK] ATSP | ftv38 | trials=10000 | rep=5
+[OK] ATSP | ftv38 | trials=100000 | rep=1
+[OK] ATSP | ftv38 | trials=100000 | rep=2
+[OK] ATSP | ftv38 | trials=100000 | rep=3
+[OK] ATSP | ftv38 | trials=100000 | rep=4
+[OK] ATSP | ftv38 | trials=100000 | rep=5
+[OK] ATSP | ftv38 | trials=1000000 | rep=1
+[OK] ATSP | ftv38 | trials=1000000 | rep=2
+[OK] ATSP | ftv38 | trials=1000000 | rep=3
+[OK] ATSP | ftv38 | trials=1000000 | rep=4
+[OK] ATSP | ftv38 | trials=1000000 | rep=5
+[OK] ATSP | ftv38 | trials=10000000 | rep=1
+[OK] ATSP | ftv38 | trials=10000000 | rep=2
+[OK] ATSP | ftv38 | trials=10000000 | rep=3
+[OK] ATSP | ftv38 | trials=10000000 | rep=4
+[OK] ATSP | ftv38 | trials=10000000 | rep=5
+
+Zakonczono. Wyniki zapisano do: results/rand_trials_study.csv
+--------------------------------------------------------------
+
+=== BENCHMARK BRUTE FORCE ===
+Typ generowanych instancji: TSP
+Zakres n: 6 - 12
+Instancji na rozmiar: 10
+Plik CSV: results/bf_tsp_final(6-12).csv
+Progress: off
+
+Rozmiar n = 6
+  instancja 1 | koszt = 150 | czas [ms] = 0.082356 | permutacje = 60 | pamiec [kB] = 3764
+  instancja 2 | koszt = 196 | czas [ms] = 0.079741 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 3 | koszt = 294 | czas [ms] = 0.07933 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 4 | koszt = 196 | czas [ms] = 0.077777 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 5 | koszt = 202 | czas [ms] = 0.078658 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 6 | koszt = 166 | czas [ms] = 0.07928 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 7 | koszt = 231 | czas [ms] = 0.085962 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 8 | koszt = 250 | czas [ms] = 0.078979 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 9 | koszt = 191 | czas [ms] = 0.078588 | permutacje = 60 | pamiec [kB] = 3956
+  instancja 10 | koszt = 190 | czas [ms] = 0.051547 | permutacje = 60 | pamiec [kB] = 3956
+  SREDNIO dla n = 6 | czas [ms] = 0.0772218 | permutacje = 60 | pamiec [kB] = 3936.8
+
+Rozmiar n = 7
+  instancja 1 | koszt = 263 | czas [ms] = 0.333389 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 2 | koszt = 145 | czas [ms] = 0.517637 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 3 | koszt = 180 | czas [ms] = 0.332748 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 4 | koszt = 141 | czas [ms] = 0.339911 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 5 | koszt = 198 | czas [ms] = 0.332688 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 6 | koszt = 130 | czas [ms] = 0.336325 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 7 | koszt = 136 | czas [ms] = 0.340543 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 8 | koszt = 159 | czas [ms] = 0.334801 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 9 | koszt = 140 | czas [ms] = 0.33432 | permutacje = 360 | pamiec [kB] = 3956
+  instancja 10 | koszt = 217 | czas [ms] = 0.338889 | permutacje = 360 | pamiec [kB] = 3956
+  SREDNIO dla n = 7 | czas [ms] = 0.354125 | permutacje = 360 | pamiec [kB] = 3956
+
+Rozmiar n = 8
+  instancja 1 | koszt = 258 | czas [ms] = 2.69419 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 2 | koszt = 149 | czas [ms] = 2.56794 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 3 | koszt = 258 | czas [ms] = 2.57223 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 4 | koszt = 152 | czas [ms] = 2.54173 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 5 | koszt = 222 | czas [ms] = 2.6379 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 6 | koszt = 100 | czas [ms] = 2.54345 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 7 | koszt = 192 | czas [ms] = 2.54523 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 8 | koszt = 126 | czas [ms] = 2.56505 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 9 | koszt = 141 | czas [ms] = 2.56128 | permutacje = 2520 | pamiec [kB] = 3956
+  instancja 10 | koszt = 231 | czas [ms] = 2.55938 | permutacje = 2520 | pamiec [kB] = 3956
+  SREDNIO dla n = 8 | czas [ms] = 2.57884 | permutacje = 2520 | pamiec [kB] = 3956
+
+Rozmiar n = 9
+  instancja 1 | koszt = 211 | czas [ms] = 22.251 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 2 | koszt = 180 | czas [ms] = 22.2945 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 3 | koszt = 199 | czas [ms] = 22.4031 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 4 | koszt = 105 | czas [ms] = 22.2322 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 5 | koszt = 183 | czas [ms] = 22.9787 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 6 | koszt = 147 | czas [ms] = 22.2684 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 7 | koszt = 278 | czas [ms] = 22.118 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 8 | koszt = 136 | czas [ms] = 22.868 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 9 | koszt = 183 | czas [ms] = 22.288 | permutacje = 20160 | pamiec [kB] = 3956
+  instancja 10 | koszt = 279 | czas [ms] = 22.2097 | permutacje = 20160 | pamiec [kB] = 3956
+  SREDNIO dla n = 9 | czas [ms] = 22.3912 | permutacje = 20160 | pamiec [kB] = 3956
+
+Rozmiar n = 10
+  instancja 1 | koszt = 141 | czas [ms] = 214.105 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 2 | koszt = 200 | czas [ms] = 214.25 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 3 | koszt = 181 | czas [ms] = 214.035 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 4 | koszt = 137 | czas [ms] = 213.446 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 5 | koszt = 195 | czas [ms] = 214.18 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 6 | koszt = 128 | czas [ms] = 213.709 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 7 | koszt = 206 | czas [ms] = 214.912 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 8 | koszt = 187 | czas [ms] = 213.698 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 9 | koszt = 193 | czas [ms] = 213.982 | permutacje = 181440 | pamiec [kB] = 3960
+  instancja 10 | koszt = 201 | czas [ms] = 213.983 | permutacje = 181440 | pamiec [kB] = 3960
+  SREDNIO dla n = 10 | czas [ms] = 214.03 | permutacje = 181440 | pamiec [kB] = 3960
+
+Rozmiar n = 11
+  instancja 1 | koszt = 243 | czas [ms] = 2263.71 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 2 | koszt = 221 | czas [ms] = 2261.18 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 3 | koszt = 245 | czas [ms] = 2265.39 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 4 | koszt = 183 | czas [ms] = 2267.4 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 5 | koszt = 168 | czas [ms] = 2268.92 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 6 | koszt = 231 | czas [ms] = 2265.72 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 7 | koszt = 235 | czas [ms] = 2268.08 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 8 | koszt = 262 | czas [ms] = 2266.6 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 9 | koszt = 184 | czas [ms] = 2265.12 | permutacje = 1814400 | pamiec [kB] = 3960
+  instancja 10 | koszt = 239 | czas [ms] = 2267.98 | permutacje = 1814400 | pamiec [kB] = 3960
+  SREDNIO dla n = 11 | czas [ms] = 2266.01 | permutacje = 1.8144e+06 | pamiec [kB] = 3960
+
+Rozmiar n = 12
+  instancja 1 | koszt = 171 | czas [ms] = 26330.6 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 2 | koszt = 212 | czas [ms] = 27228.7 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 3 | koszt = 162 | czas [ms] = 27583.7 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 4 | koszt = 183 | czas [ms] = 27161 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 5 | koszt = 235 | czas [ms] = 27491.6 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 6 | koszt = 167 | czas [ms] = 27197.6 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 7 | koszt = 263 | czas [ms] = 27361.8 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 8 | koszt = 190 | czas [ms] = 27036 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 9 | koszt = 234 | czas [ms] = 27457.3 | permutacje = 19958400 | pamiec [kB] = 3960
+  instancja 10 | koszt = 179 | czas [ms] = 27374 | permutacje = 19958400 | pamiec [kB] = 3960
+  SREDNIO dla n = 12 | czas [ms] = 27222.3 | permutacje = 1.99584e+07 | pamiec [kB] = 3960
+
+Benchmark brute force zakonczony.
+------------------------------------------------------------------------------------------------
+
+=== BENCHMARK BRUTE FORCE ===
+Typ generowanych instancji: ATSP
+Zakres n: 6 - 12
+Instancji na rozmiar: 10
+Plik CSV: results/bf_atsp_final(6-12).csv
+Progress: off
+
+Rozmiar n = 6
+  instancja 1 | koszt = 196 | czas [ms] = 0.138471 | permutacje = 120 | pamiec [kB] = 3764
+  instancja 2 | koszt = 165 | czas [ms] = 0.13761 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 3 | koszt = 206 | czas [ms] = 0.169319 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 4 | koszt = 166 | czas [ms] = 0.155563 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 5 | koszt = 75 | czas [ms] = 0.157316 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 6 | koszt = 169 | czas [ms] = 0.160363 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 7 | koszt = 208 | czas [ms] = 0.093196 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 8 | koszt = 143 | czas [ms] = 0.096952 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 9 | koszt = 197 | czas [ms] = 0.09021 | permutacje = 120 | pamiec [kB] = 3956
+  instancja 10 | koszt = 124 | czas [ms] = 0.09019 | permutacje = 120 | pamiec [kB] = 3956
+  SREDNIO dla n = 6 | czas [ms] = 0.128919 | permutacje = 120 | pamiec [kB] = 3936.8
+
+Rozmiar n = 7
+  instancja 1 | koszt = 173 | czas [ms] = 0.59897 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 2 | koszt = 137 | czas [ms] = 0.598048 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 3 | koszt = 177 | czas [ms] = 0.598439 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 4 | koszt = 147 | czas [ms] = 0.590054 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 5 | koszt = 149 | czas [ms] = 0.589192 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 6 | koszt = 149 | czas [ms] = 0.63639 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 7 | koszt = 132 | czas [ms] = 0.602526 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 8 | koszt = 68 | czas [ms] = 0.59356 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 9 | koszt = 174 | czas [ms] = 0.602596 | permutacje = 720 | pamiec [kB] = 3956
+  instancja 10 | koszt = 133 | czas [ms] = 0.593129 | permutacje = 720 | pamiec [kB] = 3956
+  SREDNIO dla n = 7 | czas [ms] = 0.60029 | permutacje = 720 | pamiec [kB] = 3956
+
+Rozmiar n = 8
+  instancja 1 | koszt = 187 | czas [ms] = 4.61693 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 2 | koszt = 155 | czas [ms] = 5.31739 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 3 | koszt = 202 | czas [ms] = 4.65254 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 4 | koszt = 85 | czas [ms] = 4.60506 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 5 | koszt = 129 | czas [ms] = 5.16948 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 6 | koszt = 100 | czas [ms] = 4.66468 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 7 | koszt = 226 | czas [ms] = 4.58219 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 8 | koszt = 118 | czas [ms] = 4.57437 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 9 | koszt = 144 | czas [ms] = 4.62793 | permutacje = 5040 | pamiec [kB] = 3956
+  instancja 10 | koszt = 160 | czas [ms] = 5.23478 | permutacje = 5040 | pamiec [kB] = 3956
+  SREDNIO dla n = 8 | czas [ms] = 4.80454 | permutacje = 5040 | pamiec [kB] = 3956
+
+Rozmiar n = 9
+  instancja 1 | koszt = 185 | czas [ms] = 40.964 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 2 | koszt = 86 | czas [ms] = 39.9351 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 3 | koszt = 184 | czas [ms] = 40.0179 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 4 | koszt = 96 | czas [ms] = 39.7931 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 5 | koszt = 128 | czas [ms] = 40.7834 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 6 | koszt = 176 | czas [ms] = 39.8895 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 7 | koszt = 220 | czas [ms] = 40.0445 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 8 | koszt = 164 | czas [ms] = 39.6819 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 9 | koszt = 175 | czas [ms] = 39.8485 | permutacje = 40320 | pamiec [kB] = 3960
+  instancja 10 | koszt = 201 | czas [ms] = 39.8171 | permutacje = 40320 | pamiec [kB] = 3960
+  SREDNIO dla n = 9 | czas [ms] = 40.0775 | permutacje = 40320 | pamiec [kB] = 3960
+
+Rozmiar n = 10
+  instancja 1 | koszt = 156 | czas [ms] = 384.754 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 2 | koszt = 102 | czas [ms] = 384.557 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 3 | koszt = 155 | czas [ms] = 411.199 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 4 | koszt = 131 | czas [ms] = 420.635 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 5 | koszt = 142 | czas [ms] = 413.505 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 6 | koszt = 123 | czas [ms] = 407.662 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 7 | koszt = 167 | czas [ms] = 410.215 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 8 | koszt = 143 | czas [ms] = 409.841 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 9 | koszt = 117 | czas [ms] = 396.559 | permutacje = 362880 | pamiec [kB] = 3960
+  instancja 10 | koszt = 164 | czas [ms] = 389.659 | permutacje = 362880 | pamiec [kB] = 3960
+  SREDNIO dla n = 10 | czas [ms] = 402.859 | permutacje = 362880 | pamiec [kB] = 3960
+
+Rozmiar n = 11
+  instancja 1 | koszt = 181 | czas [ms] = 4375.63 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 2 | koszt = 182 | czas [ms] = 4220.46 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 3 | koszt = 150 | czas [ms] = 4136.89 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 4 | koszt = 141 | czas [ms] = 4228.06 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 5 | koszt = 131 | czas [ms] = 4162.33 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 6 | koszt = 150 | czas [ms] = 4139.11 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 7 | koszt = 187 | czas [ms] = 4339.2 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 8 | koszt = 235 | czas [ms] = 4161.3 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 9 | koszt = 143 | czas [ms] = 4223.23 | permutacje = 3628800 | pamiec [kB] = 3960
+  instancja 10 | koszt = 177 | czas [ms] = 4184.96 | permutacje = 3628800 | pamiec [kB] = 3960
+  SREDNIO dla n = 11 | czas [ms] = 4217.12 | permutacje = 3.6288e+06 | pamiec [kB] = 3960
+
+Rozmiar n = 12
+  instancja 1 | koszt = 141 | czas [ms] = 48937.1 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 2 | koszt = 212 | czas [ms] = 50341.4 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 3 | koszt = 102 | czas [ms] = 49964.4 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 4 | koszt = 132 | czas [ms] = 49885.7 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 5 | koszt = 189 | czas [ms] = 49133.9 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 6 | koszt = 119 | czas [ms] = 48115.7 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 7 | koszt = 156 | czas [ms] = 49773.7 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 8 | koszt = 152 | czas [ms] = 49371.7 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 9 | koszt = 169 | czas [ms] = 48937.5 | permutacje = 39916800 | pamiec [kB] = 3960
+  instancja 10 | koszt = 136 | czas [ms] = 48745.6 | permutacje = 39916800 | pamiec [kB] = 3960
+  SREDNIO dla n = 12 | czas [ms] = 49320.7 | permutacje = 3.99168e+07 | pamiec [kB] = 3960
+
+Benchmark brute force zakonczony.
+------------------------------------------------------------------------------------------------------------
+
+=== BENCHMARK BRUTE FORCE ===
+Typ generowanych instancji: TSP
+Zakres n: 13 - 15
+Instancji na rozmiar: 1
+Plik CSV: results/bf_tsp_final(13-15).csv
+Progress: off
+
+Rozmiar n = 13
+  instancja 1 | koszt = 214 | czas [ms] = 342654 | permutacje = 239500800 | pamiec [kB] = 3728
+  SREDNIO dla n = 13 | czas [ms] = 342654 | permutacje = 2.39501e+08 | pamiec [kB] = 3728
+
+Rozmiar n = 14
+  instancja 1 | koszt = 218 | czas [ms] = 4.60067e+06 | permutacje = 3113510400 | pamiec [kB] = 3924
+  SREDNIO dla n = 14 | czas [ms] = 4.60067e+06 | permutacje = 3.11351e+09 | pamiec [kB] = 3924
+  
+Rozmiar n = 15
+  instancja 1 | koszt = 208 | czas [ms] = 6.51709e+07 | permutacje = 43589145600 | pamiec [kB] = 3960
+  SREDNIO dla n = 15 | czas [ms] = 6.51709e+07 | permutacje = 4.35891e+10 | pamiec [kB] = 3960
+
+Benchmark brute force zakonczony.
+-------------------------------------------------------------------------------------------------------------
+
+=== BENCHMARK BRUTE FORCE ===
+Typ generowanych instancji: ATSP
+Zakres n: 13 - 15
+Instancji na rozmiar: 1
+Plik CSV: results/bf_atsp_final(13-15).csv
+Progress: off
+
+Rozmiar n = 13
+  instancja 1 | koszt = 189 | czas [ms] = 657203 | permutacje = 479001600 | pamiec [kB] = 3744
+  SREDNIO dla n = 13 | czas [ms] = 657203 | permutacje = 4.79002e+08 | pamiec [kB] = 3744
+
+Rozmiar n = 14
+  instancja 1 | koszt = 214 | czas [ms] = 8.86106e+06 | permutacje = 6227020800 | pamiec [kB] = 3940
+  SREDNIO dla n = 14 | czas [ms] = 8.86106e+06 | permutacje = 6.22702e+09 | pamiec [kB] = 3940
+  
+Rozmiar n = 15
+  instancja 1 | koszt = 203 | czas [ms] = 1.21753e+08 | permutacje = 87178291200 | pamiec [kB] = 3952
+  SREDNIO dla n = 15 | czas [ms] = 1.21753e+08 | permutacje = 8.71783e+10 | pamiec [kB] = 3952
+
+Benchmark brute force zakonczony.

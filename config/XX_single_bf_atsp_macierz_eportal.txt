@@ -1,0 +1,5 @@
+mode=bf
+instance_file=data/macierze_atsp_eportal/matrix_8x8.atsp
+progress=true
+show_matrix=true
+single_opt_cost=136

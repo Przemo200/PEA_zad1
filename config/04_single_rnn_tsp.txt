@@ -2,4 +2,4 @@ mode=rnn
 instance_file=data/tsp/att48.tsp
 opt_tour_file=data/opt/att48.opt.tour
 
-show_matrix=false
+show_matrix=true

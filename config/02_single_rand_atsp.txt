@@ -4,5 +4,5 @@ single_opt_cost=1530
 
 rand_trials=10000
 seed=12345
-progress=true
-show_matrix=false
+progress=false
+show_matrix=true
