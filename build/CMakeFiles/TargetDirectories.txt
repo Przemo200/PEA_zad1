@@ -1,0 +1,3 @@
+/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles/pea_zad1.dir
+/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles/edit_cache.dir
+/home/przemyslaw_dyjak/Pulpit/ProjektyCLion/Pea_zad1/build/CMakeFiles/rebuild_cache.dir

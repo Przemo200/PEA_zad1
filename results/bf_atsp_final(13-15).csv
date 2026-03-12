@@ -1,0 +1,2 @@
+algorithm,instance_type,n,instance_id,best_cost,time_ms,checked_permutations,memory_kB
+BF,ATSP,13,1,189,657203,479001600,3744
