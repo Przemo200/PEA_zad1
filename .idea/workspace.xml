@@ -27,24 +27,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="778dfcc8-6d53-4cd3-8d78-5cbd6fda219f" name="Changes" comment="added comments">
-      <change afterPath="$PROJECT_DIR$/config/XX_single_bf_atsp_macierz_eportal.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output_terminala_dla_badan.txt" afterDir="false" />
+    <list default="true" id="778dfcc8-6d53-4cd3-8d78-5cbd6fda219f" name="Changes" comment="95% of tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/01_check_opt_for_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/01_check_opt_for_tsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/02_single_rand_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/02_single_rand_atsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/03_single_nn_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/03_single_nn_atsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/03_single_nn_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/03_single_nn_tsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/04_single_rnn_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/04_single_rnn_atsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/04_single_rnn_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/04_single_rnn_tsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/09_bf_tsp_13_15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/09_bf_tsp_13_15.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/10_bf_atsp_13_15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/10_bf_atsp_13_15.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/heuristics_atsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/heuristics_atsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/heuristics_tsp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/heuristics_tsp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/single_bf_atsp_macierz_eportal.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/bf_atsp_final(13-15).csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/bf_atsp_final(13-15).csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/bf_tsp_final(13-15).csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/bf_tsp_final(13-15).csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_terminala_dla_badan.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output_terminala_dla_badan.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1773251680073</updated>
       <workItem from="1773251682536" duration="14161000" />
-      <workItem from="1773320270790" duration="22182000" />
+      <workItem from="1773320270790" duration="24329000" />
     </task>
     <task id="LOCAL-00001" summary="added comments">
       <option name="closed" value="true" />
@@ -162,7 +147,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773336478814</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="95% of tests">
+      <option name="closed" value="true" />
+      <created>1773347946106</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773347946106</updated>
+    </task>
+    <task id="LOCAL-00005" summary="95% of tests">
+      <option name="closed" value="true" />
+      <created>1773348120300</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773348120300</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +176,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
+    <MESSAGE value="95% of tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="95% of tests" />
   </component>
 </project>
