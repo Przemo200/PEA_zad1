@@ -307,7 +307,7 @@ int main(int argc, char* argv[]) {
                         totalSteps,
                         "RAND | instancja=" + entry.name + " | rep=" + std::to_string(rep)
                     );
-
+                    // rozne seed w pomiarach benchmark
                     unsigned int localSeed = config.seed + static_cast<unsigned int>(i * 1000 + rep);
 
                     RandResult randResult = RandSolver::solve(

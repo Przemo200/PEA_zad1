@@ -877,7 +877,7 @@ Rozmiar n = 14
   SREDNIO dla n = 14 | czas [ms] = 8.86106e+06 | permutacje = 6.22702e+09 | pamiec [kB] = 3940
   
 Rozmiar n = 15
-  instancja 1 | koszt = 203 | czas [ms] = 1.21753e+08 | permutacje = 87178291200 | pamiec [kB] = 3952
-  SREDNIO dla n = 15 | czas [ms] = 1.21753e+08 | permutacje = 8.71783e+10 | pamiec [kB] = 3952
+  instancja 1 | koszt = 203 | czas [ms] = 1.21753e+08 | permutacje = 87178291200 | pamiec [kB] = 3960
+  SREDNIO dla n = 15 | czas [ms] = 1.21753e+08 | permutacje = 8.71783e+10 | pamiec [kB] = 3960
 
 Benchmark brute force zakonczony.

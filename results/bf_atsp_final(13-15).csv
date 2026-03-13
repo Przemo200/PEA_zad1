@@ -1,4 +1,4 @@
 algorithm,instance_type,n,instance_id,best_cost,time_ms,checked_permutations,memory_kB
 BF,ATSP,13,1,189,657203,479001600,3744
 BF,ATSP,14,1,214,8.86106e+06,6227020800,3940
-BF,ATSP,15,1,203,1.21753e+08,87178291200,3952
+BF,ATSP,15,1,203,1.21753e+08,87178291200,3960
