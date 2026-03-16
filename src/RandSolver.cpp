@@ -32,6 +32,14 @@ namespace {
     }
 }
 
+
+// opcjonalnie - helper do early stop po bledzie wzglednym - trzeba tez odkomentowac rzeczy w rand.h i main.cpp
+// static double computeRelativeErrorPercentForRand(int cost, int optCost) {
+//     return 100.0 * (static_cast<double>(cost - optCost) / static_cast<double>(optCost));
+// }
+
+
+
 // przyjmuje instancje, okreslona liczbe sciezek, seed i info czy pokazac progres
 // jako ze FY to O(n) a koszt trasy to tez O(n) to ogolna zlozonosc tego bedzie O(trials * n)
 RandResult RandSolver::solve(const TSPInstance& instance, int trials, unsigned int seed, bool progress) {
@@ -72,6 +80,23 @@ RandResult RandSolver::solve(const TSPInstance& instance, int trials, unsigned i
             bestCost = cost;
             bestTour = currentTour;
         }
+
+        // opcjonalnie early stop dla RAND po osiagnieciu bledu wzglednego <= prog mogloby dzialac tak (jeszcze rzeczy w .h i main.cpp tez)
+        // tylko wtedy, gdy znamy optCost
+
+        // bool earlyStopEnabled = true;
+        // int optCost = ...;
+        // double maxRelativeErrorPercent = 10.0;
+        //
+        // if (earlyStopEnabled && optCost > 0) {
+        //     double relError = computeRelativeErrorPercentForRand(bestCost, optCost);
+        //     if (relError <= maxRelativeErrorPercent) {
+        //         // jezeli doda sie do RandResult pola trialsDone i stoppedEarly too tutaj mozna by je uzupelnic
+        //         // result.trialsDone = t + 1;
+        //         // result.stoppedEarly = true;
+        //         break;
+        //     }
+        // }
 
         if (progress && trials >= 10) {
             int step = trials / 10;

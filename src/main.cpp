@@ -310,6 +310,19 @@ int main(int argc, char* argv[]) {
                     // rozne seed w pomiarach benchmark
                     unsigned int localSeed = config.seed + static_cast<unsigned int>(i * 1000 + rep);
 
+
+                    // opcjonalnie wersja z early stop po osiagnieciu bledu wzglednego <= 10% do podmianki - jeszcze do odkomentowania w rand.cpp i rand.h
+                    // dzialaloby tylko wtedy gdy dla instancji jest znany optCost
+                    // RandResult randResult = RandSolver::solve(
+                    //     instance,
+                    //     config.rand_trials,
+                    //     localSeed,
+                    //     false,
+                    //     optInfo.available,
+                    //     optInfo.cost,
+                    //     10.0
+                    // );
+
                     RandResult randResult = RandSolver::solve(
                         instance,
                         config.rand_trials,
@@ -518,6 +531,18 @@ int main(int argc, char* argv[]) {
 
             OptCostInfo optInfo = getOptCostFromConfig(config, instance);
             printOptInfo(optInfo);
+
+            // opcja z wersja z early stop po osiagnieciu bledu wzglednego <= 10% do podmianki - jeszcze do odkomentowania w rand.cpp i randsolver.h
+            // tylko wtedy, gdy optInfo.available == true
+            // RandResult result = RandSolver::solve(
+            //     instance,
+            //     config.rand_trials,
+            //     config.seed,
+            //     config.progress,
+            //     optInfo.available,
+            //     optInfo.cost,
+            //     10.0
+            // );
 
             RandResult result = RandSolver::solve(
                 instance,
