@@ -16,7 +16,7 @@ namespace {
     }
     // nie od indeks 0 tylko od 1
     // idzie od konca tablicy do poczatku, dla kazdego i losuje j z zakresu 1 do i i zamienia [i] z [j]
-    // zlozonosc fisher yatesa to O(n). jest tez algorytm Heapa, ale nie zaglebialem sie w niego (zamiana pary)
+    // jest tez algorytm Heapa, ale nie zaglebialem sie w niego (zamiana pary??)
     void fisherYatesShuffleFromSecond(std::vector<int>& tour, std::mt19937& rng) {
         int n = static_cast<int>(tour.size());
 

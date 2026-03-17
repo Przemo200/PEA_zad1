@@ -188,7 +188,7 @@ static int countHeuristicBenchmarkSteps(const Config& config,
 
 int main(int argc, char* argv[]) {
     try {
-        std::string configPath = "config/config.txt";
+        std::string configPath = "config/00_test_read.txt";
         if (argc > 1) {
             configPath = argv[1];
         }
@@ -522,7 +522,7 @@ int main(int argc, char* argv[]) {
         }
 
         if (config.mode == "test_read") {
-            std::cout << "Poprawnie wczytano";
+            std::cout << "Poprawnie wczytano\n";
         }
         else if (config.mode == "rand") {
             std::cout << "\nUruchamiam RAND...\n";

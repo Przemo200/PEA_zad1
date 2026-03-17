@@ -29,7 +29,16 @@
   <component name="ChangeListManager">
     <list default="true" id="76088abf-ca81-43ee-a189-16caa3327c83" name="Changes" comment="small change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/FileReader.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/FileReader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/pea_zad1.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/pea_zad1" beforeDir="false" afterPath="$PROJECT_DIR$/build/pea_zad1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_rand_trials_study.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_rand_trials_study.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BruteForceSolver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/BruteForceSolver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileReader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandSolver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandSolver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +136,7 @@
       <workItem from="1773571092257" duration="84000" />
       <workItem from="1773681297342" duration="36000" />
       <workItem from="1773681604124" duration="3601000" />
-      <workItem from="1773756070194" duration="912000" />
+      <workItem from="1773756070194" duration="6017000" />
     </task>
     <task id="LOCAL-00001" summary="fixes">
       <option name="closed" value="true" />
@@ -145,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773685490541</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="small change">
+      <option name="closed" value="true" />
+      <created>1773757202815</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1773757202815</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

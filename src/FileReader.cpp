@@ -48,7 +48,7 @@ namespace {
         std::string token;
         int value = -1;
 
-        while (ss >> token) {
+        while (ss >> token) { // dopoki da sie czytac do token z ss, a inaczej dowolny wyjatek
             try {
                 value = std::stoi(token);
             } catch (...) {
@@ -164,7 +164,7 @@ namespace {
         double d = std::sqrt(dx * dx + dy * dy);
         return static_cast<int>(std::lround(d));
     }
-    // pseudo euklides uzywany w tsp lib,, taki wzorek z pierwiastkiem i kwadratami dzielony przez 10
+    // pseudo euklides uzywany w tsp lib, taki wzorek z pierwiastkiem i kwadratami dzielony przez 10
     int distATT(double x1, double y1, double x2, double y2) {
         double dx = x1 - x2;
         double dy = y1 - y2;

@@ -42,7 +42,7 @@ namespace {
             return false;
         }
 
-        // znajduje od końca pierwszy indeks i taki, że arr[i] < arr[i+1]
+        // znajduje od końca pierwszy indeks i taki że arr[i] < arr[i+1]
         int i = n - 2;
         while (i >= 0 && arr[i] >= arr[i + 1]) {
             i--;

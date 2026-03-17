@@ -21,7 +21,7 @@ run_list() {
     local set_type="$2"
 
     while IFS=';' read -r name instance_file opt_tour_file opt_cost; do
-        # pomijaj komentarze i puste linie
+        # pomija komentarze i puste linie
         [[ -z "${name}" ]] && continue
         [[ "${name}" =~ ^# ]] && continue
 
