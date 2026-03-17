@@ -1,0 +1,73 @@
+PEA zadanie 1
+Autor - Przemyslaw Dyjak 280959
+
+
+====================================================================================
+Program należy uruchamiać z katalogu głównego projektu, czyli z folderu "Pea_zad1/"
+
+Nie należy uruchamiać programu z folderu build/ ani cmake-build-release/,
+ponieważ ścieżki w plikach konfiguracyjnych (np. data/tsp/att48.tsp)
+są zapisane względem katalogu głównego projektu
+====================================================================================
+
+
+
+
+
+STRUKTURA
+=========
+
+src/        - pliki źródłowe .cpp
+include/    - pliki nagłówkowe .h
+config/     - pliki konfiguracyjne do uruchamiania poszczególnych trybów
+data/       - dane wejściowe - instancje TSP/ATSP oraz pliki .opt.tour
+results/    - wyniki zapisane do plików CSV
+
+oraz w katalogu glownym plik .txt z opisem kompilacji, skrypt .sh do badania bledu wzg. dla rand i CMakeLists.txt
+
+
+
+
+
+KOMPILACJA
+==========
+
+Z katalogu głównego projektu:
+
+mkdir -p build
+cd build
+cmake ..
+make
+
+Po kompilacji wrócić do katalogu głównego projektu:
+
+cd ..
+
+
+
+
+============
+URUCHAMIANIE
+============
+
+Program uruchamiać z katalogu głównego projektu w postaci:
+
+./build/pea_zad1 config/nazwa_pliku.txt
+
+Przykłady:
+
+./build/pea_zad1 config/00_test_read.txt
+./build/pea_zad1 config/01_check_opt_for_tsp.txt
+./build/pea_zad1 config/02_single_rand_tsp.txt
+./build/pea_zad1 config/02_single_rand_atsp.txt
+./build/pea_zad1 config/03_single_nn_tsp.txt
+./build/pea_zad1 config/03_single_nn_atsp.txt
+./build/pea_zad1 config/04_single_rnn_tsp.txt
+./build/pea_zad1 config/04_single_rnn_atsp.txt
+./build/pea_zad1 config/05_heuristics_tsp.txt
+./build/pea_zad1 config/06_heuristics_atsp.txt
+./build/pea_zad1 config/07_bf_tsp_6_12.txt
+./build/pea_zad1 config/08_bf_atsp_6_12.txt
+./build/pea_zad1 config/09_bf_tsp_13_15.txt
+./build/pea_zad1 config/10_bf_atsp_13_15.txt
+
